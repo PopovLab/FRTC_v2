@@ -55,6 +55,8 @@ cc*********************************************************************
       call init_plasma(NA1,ABC,BTOR,RTOR,UPDWN,GP2,
      & AMETR,RHO,SHIF,ELON,TRIA,MU,NE,TE,TI,ZEF,UPL)
 
+      call write_plasma(time)
+      
       full_spectrum = read_spectrum('lhcd/spectrum.dat')
       full_spectrum%input_power = p_in
       pos_spectr = full_spectrum%get_positive_part()
