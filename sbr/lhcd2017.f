@@ -135,8 +135,8 @@ cc*********************************************************************
       end do
 
       deallocate(outpep,outpem)
-
       call my_timer%stop_and_save
       print *, 'lhcd elapsed time', my_timer%elapsed_time
       !pause
+
       end
