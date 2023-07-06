@@ -6,7 +6,7 @@ contains
     !! calculation of distribution functions at time t1=t+dtau !!
 subroutine fokkerplanck_compute(time, TAU)
     use FokkerPlanck1D_mod
-    use Utils
+    use utils
     use rt_parameters
     use writer_module
     use maxwell  
@@ -14,7 +14,7 @@ subroutine fokkerplanck_compute(time, TAU)
     implicit none
 
     type(FokkerPlanck1D) fokker_planck
-
+    !type(Timer) my_timer
     real(wp), intent(in) :: time, TAU
     real(wp) t, dtstep, dtau
     !integer nr
@@ -33,14 +33,13 @@ subroutine fokkerplanck_compute(time, TAU)
     !integer jindex,kindex
     !common/dddql/ d0,jindex,kindex
     parameter(dt0=0.1d0,h0=0.1d0)
-    real time1, time2
 
     dtstep=TAU/dble(ntau) !seconds 
 
     print *, 'fokkerplanck_compute'
     write(*,*)'time=',time,' dt=',dtstep
 
-    time1 = sys_time()
+    !call my_timer%start
 
     do j=1, nr
         jindex=j  !common/dddql/ 
@@ -84,8 +83,12 @@ subroutine fokkerplanck_compute(time, TAU)
     call write_v_array(vij, fij0(:,1:nr,:), time, 'maxwell')
     call write_v_array(vij,  dij(:,1:nr,:), time, 'diffusion')
     !call write_matrix(dij(1:i0,1:nr,1), time, 'diffusion')
-    time2 = sys_time() - time1
-    print *, 'fokkerplanck_new eval time: ', time2    
+    !time2 = sys_time() - time1
+    !call my_timer%stop
+    !print *, 'fokkerplanck elapsed_time: ', my_timer%elapsed_time    
+   ! print *, 'fokkerplanck_new eval time: ', time2    
+    !pause
+    
  end
 
 

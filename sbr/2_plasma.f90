@@ -1,4 +1,5 @@
 module plasma
+    !! модуль параметров плазмы
     use kind_module  
     implicit none
     integer ngrid, nspl
@@ -7,8 +8,12 @@ module plasma
     !! время (придумать название для переменной получше)
     real(wp) rm
     !! minor radius in mid-plane, cm
-    real(wp) b_tor0, b_tor
+    real(wp) b_tor0
+    !! тороидальное магнитное поле
     !! временно нужно две переменных, тоже нужно исправить
+    real(wp) b_tor
+    !! тороидальное магнитное поле
+
     real(wp) r0
     real(wp) z0
     real(wp) rh1
@@ -94,7 +99,7 @@ contains
         rha(1) = 0.0d0        !shifting the first element to zero
         delta(1) = 0.0d0      !putting delta(rh=0.)=0.
         gamm(1) = 0.0d0       !putting gamm(rh=0.)=0.
-  
+   
         b_tor0=1.d4*BTOR*RTOR/(RTOR+SHIF(1)) !B_tor_(magnetic axis), Gauss
         rm=1.d2*ABC                       !minor radius in mid-plane, cm
         r0=1.d2*(RTOR+SHIF(1))     !x-coordinate of the magnetic axis, cm
@@ -221,6 +226,36 @@ contains
         cnstal=(dsqrt(cnst1)/xmalfa/pi)*(zalfa*vt0/valfa)**2*clt/valfa
         vpmax=dsqrt(energy/talfa)
         !  "vpmax" in valfa velocity units !        
+    end subroutine
+
+    subroutine write_plasma(time_stamp)
+        real(wp), intent(in) :: time_stamp
+        character(120) fname
+        integer, parameter :: iu = 20
+        integer i
+        write(fname,'("lhcd/plasma/", f9.7,".dat")')  time_stamp
+        print *, fname
+        open(iu, file=fname, status = 'new')
+        write (iu, '(A)'), '#vars'
+        write (iu, '(14A23)') 'b_tor0', 'rm', 'r0', 'z0'
+        write (iu, ' (14(ES23.14))') b_tor0, rm, r0, z0
+        write (iu, *) 
+
+        write (iu, '(A)'), '#approx'
+        write (iu, '(14A23)') 'cdl', 'cly', 'cgm', 'cmy'
+        do i=1, ncoef
+            write (iu, ' (14(ES23.14))') cdl(i),cly(i),cgm(i),cmy(i)
+        end do  
+        write (iu, *) 
+
+        write (iu, '(A)'), '#radial_data'
+        write (iu, '(14A23)') 'rh', 'rha', 'delta', 'ell', 'gamm', 'con', 'tem', 'temi', 'zeff', 'afld' 
+        do i=1, ngrid
+            write (iu, ' (14(ES23.14))') rh(i), rha(i), delta(i), ell(i), gamm(i), con(i), tem(i), temi(i), zeff(i), afld(i)
+        end do                    
+
+        close(iu)
+
     end subroutine
 
     subroutine find_volums_and_surfaces

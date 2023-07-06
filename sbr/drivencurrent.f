@@ -6,20 +6,27 @@
 !   outjrun(i)  = LH driven runaway current density, MA/m^2
 !   outnerun(i) = runaway electron density/10^19 m^-3
 ! ******************************************************************
+            use utils
           implicit none
           include 'for/parameter.inc'
           include 'for/const.inc'
           include 'for/status.inc'
           real*8 outj(NRD),sigmaj(NRD)
+          type(Timer) my_timer
 ! RTOR    major radius
 ! ROC     effective minor radius
 ! UPL(*)  toroidal loop voltage
 ! NRD     501 - Maximum size of the radial grid
 ! NA1     Edge grid point number: ROC=RHO(NA1)
 ! GP2     2*Pi
+          call my_timer%start('lhcd/drivencurrent_time.dat', time)
           call drivencurrent95(outj, sigmaj, UPL, NRD, NA1, TIME, TAU, 
      & ROC, RTOR, GP2)
              
+            
+          call my_timer%stop_and_save
+          print *, 'driven current elapsed time', my_timer%elapsed_time
+          !pause
         end    
 
         double precision function aiint(arr,yr)
