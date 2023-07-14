@@ -1,0 +1,91 @@
+17:39:46: <class 'AstraBox.Kernel.AstraWorker'>
+17:39:46: folder: D:\PopovLab\FRTC_v2
+17:39:46: start 2023_07_14_17_39_37
+17:39:46: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/dat/*.*
+17:39:49: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/dat/XData/*.*
+17:39:50: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/diffusion/*.*
+17:39:50: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/maxwell/*.*
+17:39:50: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/distribution/*.*
+17:39:50: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/traj/*.*
+17:39:50: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/rt-result/*.*
+17:39:50: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/out/*.*
+17:39:51: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/plasma/*.*
+17:39:51: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/*.*
+17:39:51: copy : D:\PopovLab\FRTC_v2\race_data.zip
+17:39:51: to: \\wsl$\Ubuntu\home\nteplova\ASTRA-6/a4
+17:39:51: run_cmd: wsl --cd /home/nteplova/ASTRA-6/a4 unzip -o race_data.zip
+17:39:51: Archive:  race_data.zip
+17:39:51:   inflating: exp/40796.exp
+17:39:51:   inflating: equ/40796.equ
+17:39:51:   inflating: lhcd/ray_tracing.dat
+17:39:51:   inflating: lhcd/spectrum.dat
+17:39:51:   inflating: sbr/0_kind_module.f90
+17:39:51:   inflating: sbr/1_approximation.f90
+17:39:51:   inflating: sbr/1_chang_cooper_solver.f90
+17:39:51:   inflating: sbr/1_chebyshev.f90
+17:39:51:   inflating: sbr/1_constants.f90
+17:39:51:   inflating: sbr/1_lock_module.f90
+17:39:51:   inflating: sbr/1_math.f90
+17:39:51:   inflating: sbr/1_maxwell.f90
+17:39:51:   inflating: sbr/1_rt_parameters.f90
+17:39:51:   inflating: sbr/1_runge_kutta.f90
+17:39:51:   inflating: sbr/1_savelyev_solver.f90
+17:39:51:   inflating: sbr/1_spline.f90
+17:39:51:   inflating: sbr/1_utils.f90
+17:39:51:   inflating: sbr/1_writer_module.f90
+17:39:51:   inflating: sbr/2_driven_current_module.f90
+17:39:51:   inflating: sbr/2_FokkerPlanck1D.f90
+17:39:51:   inflating: sbr/2_iterator_module.f90
+17:39:51:   inflating: sbr/2_plasma.f90
+17:39:51:   inflating: sbr/2_spectrum.f90
+17:39:51:   inflating: sbr/3_current_and_power.f90
+17:39:51:   inflating: sbr/3_dispersion.f90
+17:39:51:   inflating: sbr/3_driver_module.f90
+17:39:51:   inflating: sbr/3_flux_surface_mod.f90
+17:39:51:   inflating: sbr/3_FokkerPlanck.f90
+17:39:51:   inflating: sbr/3_iteration_result.f90
+17:39:51:   inflating: sbr/3_trajectory.f90
+17:39:51:   inflating: sbr/4_manager.f90
+17:39:51:   inflating: sbr/5_lhcd_module.f90
+17:39:51:   inflating: sbr/debug.f
+17:39:51:   inflating: sbr/drivencurrent.f
+17:39:51:   inflating: sbr/drivencurrent95.f90
+17:39:51:   inflating: sbr/lhcd2017.f
+17:39:51:   inflating: sbr/saveprofiles.f
+17:39:51:   inflating: sbr/typdsp_ext.f
+17:39:51:   inflating: sbr/typdsp_time.f
+17:39:51:   inflating: race_model.json
+17:39:51: run_cmd: start wsl  --cd /home/nteplova/ASTRA-6 ./run10.sh a4 40796.exp 40796.equ
+17:42:23: finish
+17:42:23: pack data
+17:42:23: run_cmd: wsl --cd /home/nteplova/ASTRA-6/a4 zip -r race_data.zip dat
+17:42:23: updating: dat/ (stored 0%)
+17:42:23: updating: dat/XData/ (stored 0%)
+17:42:23: run_cmd: wsl --cd /home/nteplova/ASTRA-6/a4 zip -r race_data.zip lhcd
+17:42:24: updating: lhcd/diffusion/ (stored 0%)
+17:42:24: updating: lhcd/maxwell/ (stored 0%)
+17:42:24: updating: lhcd/distribution/ (stored 0%)
+17:42:24: updating: lhcd/traj/ (stored 0%)
+17:42:24: updating: lhcd/rt-result/ (stored 0%)
+17:42:24: updating: lhcd/out/ (stored 0%)
+17:42:24: updating: lhcd/plasma/ (stored 0%)
+17:42:24: updating: lhcd/ (stored 0%)
+17:42:24: updating: lhcd/ray_tracing.dat (deflated 78%)
+17:42:24: updating: lhcd/spectrum.dat (deflated 80%)
+17:42:24:   adding: lhcd/traj/0.1600000.dat (deflated 81%)
+17:42:24:   adding: lhcd/maxwell/0.1600000.dat (deflated 77%)
+17:42:24:   adding: lhcd/diffusion/0.1600000.dat (deflated 84%)
+17:42:24:   adding: lhcd/out/3.dat (deflated 82%)
+17:42:25:   adding: lhcd/out/1.dat (deflated 82%)
+17:42:25:   adding: lhcd/out/absorp.dat (deflated 78%)
+17:42:25:   adding: lhcd/out/npar_crit.dat (deflated 76%)
+17:42:25:   adding: lhcd/out/5.dat (deflated 82%)
+17:42:25:   adding: lhcd/out/info_traj.dat (deflated 91%)
+17:42:25:   adding: lhcd/out/lcms.dat (deflated 78%)
+17:42:25:   adding: lhcd/out/2.dat (deflated 83%)
+17:42:25:   adding: lhcd/out/rest.dat (deflated 83%)
+17:42:25:   adding: lhcd/out/4.dat (deflated 82%)
+17:42:25:   adding: lhcd/dc_result.dat (deflated 77%)
+17:42:25:   adding: lhcd/rt-result/0.1600000.dat (deflated 84%)
+17:42:25:   adding: lhcd/distribution/0.1600000.dat (deflated 69%)
+17:42:25: the end
