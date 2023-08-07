@@ -7,3 +7,4 @@ doc/html/
 *.bak
 *.zip
 kernel.log
+RadialPlotSetting.json
