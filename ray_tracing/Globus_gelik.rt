@@ -2,7 +2,7 @@
   "name": "Globus_gelik",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
@@ -305,11 +305,11 @@
     "spectrum": {
       "spectrum_type": "gaussian",
       "options": {
-        "x_min": -15.0,
-        "x_max": 5.0,
-        "step": 0.1,
-        "bias": -8.0,
-        "sigma": 0.5
+        "x_min": 9.0,
+        "x_max": 7.0,
+        "step": 0.01,
+        "bias": 8.0,
+        "sigma": 0.2
       },
       "parameters": {
         "angle": {
