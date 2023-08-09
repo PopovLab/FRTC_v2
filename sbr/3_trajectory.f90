@@ -44,7 +44,7 @@ subroutine init_trajectory
     yn3beg = zero
 end subroutine 
 
-subroutine view(tview,iview,nnz,ntet) !sav2008
+subroutine view(tview, ispectr,nnz,ntet) !sav2008
 !!!writing trajectories into a file
     use constants
     use approximation
@@ -57,7 +57,7 @@ subroutine view(tview,iview,nnz,ntet) !sav2008
     implicit real(wp) (a-h,o-z)
     real(wp), intent(in) :: tview
 
-    integer, intent(in) :: iview, nnz, ntet  !sav#
+    integer, intent(in) :: ispectr, nnz, ntet  !sav#
     !common /bcef/ ynz,ynpopq
     !common /vth/ vthc(length),poloidn(length)
     real(wp) vthcg,npoli
@@ -75,10 +75,14 @@ subroutine view(tview,iview,nnz,ntet) !sav2008
     character*40 name(m)
     save name !sav#
     data name/'lhcd/out/1.dat','lhcd/out/2.dat','lhcd/out/3.dat','lhcd/out/4.dat','lhcd/out/5.dat','lhcd/out/rest.dat','lhcd/out/traj.dat'/
-    if(iview.eq.0) return
+    !if(iview.eq.0) return
     print *, 'view_time=',tview
     print *, name(m)
-    write(fname,'("lhcd/traj/", f9.7,".dat")') tview
+    if (ispectr>0) then
+        write(fname,'("lhcd/traj/pos/", f9.7,".dat")') tview
+    else
+        write(fname,'("lhcd/traj/neg/", f9.7,".dat")') tview
+    endif
     print *, fname
     name(m) = fname
     print *, name(m)
