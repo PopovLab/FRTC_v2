@@ -2,7 +2,7 @@
   "name": "40976 scatter",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n",
+      "value": "Comments about ....\n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
@@ -227,7 +227,7 @@
     "Options": {
       "ipri": {
         "title": "ipri",
-        "value": 2,
+        "value": 1,
         "type": "int",
         "description": "printing output monitoring: 0,1,2,3,4']"
       },
@@ -251,13 +251,13 @@
       },
       "ismthout": {
         "title": "ismthout",
-        "value": 1,
+        "value": 0,
         "type": "int",
         "description": "if=0, no smoothing in output profiles"
       },
       "inew": {
         "title": "inew",
-        "value": 0,
+        "value": 1,
         "type": "int",
         "description": "inew=0 for usual tokamak&Ntor_grill; 1 or 2 for g' in ST&Npol_grill"
       },

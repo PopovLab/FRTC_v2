@@ -2,7 +2,7 @@
   "name": "Globus_gelik_nt",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
@@ -284,7 +284,7 @@
       },
       "Zminus": {
         "title": "Zminus",
-        "value": -11.0,
+        "value": 0.0,
         "type": "float",
         "unit": "cm",
         "description": "lower grill corner in centimeters"
