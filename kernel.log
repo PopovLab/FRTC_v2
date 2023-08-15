@@ -1,60 +1,15 @@
-17:15:08: create AstraWorker
-17:15:08: exp: ft2_2017.exp, equ: ft2_2017.equ, rt: 40976 scatter.rt, astra_profile: Astra-6 a4
-17:15:08: start 2023_08_09_17_15_06
-17:15:08: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/dat/*.*
-17:15:08: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/dat/XData/*.*
-17:15:08: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/diffusion/*.*
-17:15:08: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/maxwell/*.*
-17:15:08: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/distribution/*.*
-17:15:08: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/traj/*.*
-17:15:08: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/traj/pos/*.*
-17:15:09: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/traj/neg/*.*
-17:15:09: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/rt-result/*.*
-17:15:09: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/out/*.*
-17:15:09: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/plasma/*.*
-17:15:09: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/*.*
-17:15:09: copy : D:\PopovLab\FRTC_v2\race_data.zip
-17:15:09: to: \\wsl$\Ubuntu\home\nteplova\ASTRA-6/a4
-17:15:09: run_cmd: wsl --cd /home/nteplova/ASTRA-6/a4 unzip -o race_data.zip
-17:15:09: Archive:  race_data.zip
-17:15:09:   inflating: exp/ft2_2017.exp
-17:15:09:   inflating: equ/ft2_2017.equ
-17:15:09:   inflating: lhcd/ray_tracing.dat
-17:15:09:   inflating: lhcd/spectrum.dat
-17:15:09:   inflating: sbr/0_kind_module.f90
-17:15:09:   inflating: sbr/1_approximation.f90
-17:15:09:   inflating: sbr/1_chang_cooper_solver.f90
-17:15:09:   inflating: sbr/1_chebyshev.f90
-17:15:09:   inflating: sbr/1_constants.f90
-17:15:09:   inflating: sbr/1_lock_module.f90
-17:15:09:   inflating: sbr/1_math.f90
-17:15:09:   inflating: sbr/1_maxwell.f90
-17:15:09:   inflating: sbr/1_rt_parameters.f90
-17:15:09:   inflating: sbr/1_runge_kutta.f90
-17:15:09:   inflating: sbr/1_savelyev_solver.f90
-17:15:09:   inflating: sbr/1_spline.f90
-17:15:09:   inflating: sbr/1_utils.f90
-17:15:09:   inflating: sbr/1_writer_module.f90
-17:15:09:   inflating: sbr/2_driven_current_module.f90
-17:15:09:   inflating: sbr/2_FokkerPlanck1D.f90
-17:15:09:   inflating: sbr/2_iterator_module.f90
-17:15:09:   inflating: sbr/2_plasma.f90
-17:15:09:   inflating: sbr/2_spectrum.f90
-17:15:09:   inflating: sbr/3_current_and_power.f90
-17:15:09:   inflating: sbr/3_dispersion.f90
-17:15:09:   inflating: sbr/3_driver_module.f90
-17:15:09:   inflating: sbr/3_flux_surface_mod.f90
-17:15:09:   inflating: sbr/3_FokkerPlanck.f90
-17:15:09:   inflating: sbr/3_iteration_result.f90
-17:15:09:   inflating: sbr/3_trajectory.f90
-17:15:09:   inflating: sbr/4_manager.f90
-17:15:09:   inflating: sbr/5_lhcd_module.f90
-17:15:09:   inflating: sbr/debug.f
-17:15:09:   inflating: sbr/drivencurrent.f
-17:15:09:   inflating: sbr/drivencurrent95.f90
-17:15:09:   inflating: sbr/lhcd2017.f
-17:15:09:   inflating: sbr/saveprofiles.f
-17:15:09:   inflating: sbr/typdsp_ext.f
-17:15:09:   inflating: sbr/typdsp_time.f
-17:15:09:   inflating: race_model.json
-17:15:09: run_cmd: start wsl  --cd /home/nteplova/ASTRA-6 ./run10.sh a4 ft2_2017.exp ft2_2017.equ
+12:54:27: create AstraWorker
+12:54:27: exp: ft2oldtrosh.exp, equ: ft2oldtrosh.equ, rt: ft2_trosh_old.rt, astra_profile: Astra-6 a4
+12:54:27: start 2023_08_14_12_54_26
+12:54:27: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/dat/*.*
+12:54:31: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/dat/XData/*.*
+12:54:32: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/diffusion/*.*
+12:54:32: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/maxwell/*.*
+12:54:32: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/distribution/*.*
+12:54:32: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/traj/*.*
+12:54:32: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/traj/pos/*.*
+12:54:32: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/traj/neg/*.*
+12:54:33: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/rt-result/*.*
+12:54:33: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/out/*.*
+12:54:33: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/plasma/*.*
+12:54:33: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a4/lhcd/*.*

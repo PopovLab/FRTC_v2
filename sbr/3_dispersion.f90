@@ -204,6 +204,7 @@ contains
         if(inew.gt.0) then
             if(inew.eq.1) then
                     yny= - (yn2*g2v1*co-yn3*g3v*si)
+                   ! yny= - (yn2*g2v1-yn3*g3v)
                 else if(inew.eq.2) then
                     yny= - g2jq*(yn2*g2v1*co-yn3*g3v*si)
             end if
