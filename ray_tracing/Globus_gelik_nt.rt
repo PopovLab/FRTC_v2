@@ -2,14 +2,14 @@
   "name": "Globus_gelik_nt",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
     "Physical parameters": {
       "Freq": {
         "title": "Frequency",
-        "value": 0.2,
+        "value": 0.5,
         "unit": "GHz",
         "type": "float",
         "description": "RF frequency, GHz"
@@ -284,7 +284,7 @@
       },
       "Zminus": {
         "title": "Zminus",
-        "value": 0.0,
+        "value": -11.0,
         "type": "float",
         "unit": "cm",
         "description": "lower grill corner in centimeters"

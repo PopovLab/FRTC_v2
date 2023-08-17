@@ -1,15 +1,15 @@
 {
-  "name": "Globus_gelik_file",
+  "name": "T15 model",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
     "Physical parameters": {
       "Freq": {
         "title": "Frequency",
-        "value": 0.3,
+        "value": 2.45,
         "unit": "GHz",
         "type": "float",
         "description": "RF frequency, GHz"
@@ -34,7 +34,7 @@
       },
       "zi2": {
         "title": "zi2",
-        "value": 8.0,
+        "value": 0.0,
         "type": "float",
         "description": "charge of ions 2"
       },
@@ -159,7 +159,7 @@
       },
       "pabs": {
         "title": "pabs",
-        "value": 10.01,
+        "value": 0.01,
         "type": "float",
         "description": "part of remaining power interp. as absorption"
       },
@@ -233,13 +233,13 @@
       },
       "iw": {
         "title": "iw",
-        "value": -1,
+        "value": 1,
         "type": "int",
         "description": "initial mode (slow=1, fast=-1)"
       },
       "ismth": {
         "title": "ismth",
-        "value": 0,
+        "value": 1,
         "type": "int",
         "description": "if=0, no smoothing in Ne(rho),Te(rho),Ti(rho)"
       },
@@ -257,7 +257,7 @@
       },
       "inew": {
         "title": "inew",
-        "value": -1,
+        "value": 0,
         "type": "int",
         "description": "inew=0 for usual tokamak&Ntor_grill; 1 or 2 for g' in ST&Npol_grill"
       },
@@ -277,14 +277,14 @@
     "grill parameters": {
       "Zplus": {
         "title": "Zplus",
-        "value": 22.0,
+        "value": 20.0,
         "type": "float",
         "unit": "cm",
         "description": "upper grill corner in centimeters"
       },
       "Zminus": {
         "title": "Zminus",
-        "value": 10.0,
+        "value": -20.0,
         "type": "float",
         "unit": "cm",
         "description": "lower grill corner in centimeters"
@@ -303,8 +303,14 @@
       }
     },
     "spectrum": {
-      "spectrum_type": "spectrum_1D",
-      "source": "D:/PopovLab/FRTC_v2/ray_tracing/gelik_old.txt",
+      "spectrum_type": "gaussian",
+      "options": {
+        "x_min": -8.0,
+        "x_max": 0.0,
+        "step": 0.05,
+        "bias": -4.0,
+        "sigma": 1.0
+      },
       "parameters": {
         "angle": {
           "title": "Angle",
