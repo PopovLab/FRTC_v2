@@ -1,5 +1,5 @@
 module manager_mod
-    !! РјРѕРґСѓР»СЊ РѕРїСЂРµРґРµР»СЏРµС‚ РЅР°С‡Р°Р»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ Р»СѓС‡РµР№ Рё Р·Р°РїСѓСЃРєР°РµС‚ С‚СЂР°СЃСЃРёСЂРѕРІРєСѓ
+    !! модуль определяет начальные значения лучей и запускает трассировку
     use kind_module
     implicit none
 
@@ -281,7 +281,7 @@ contains
             if (inew.gt.0) then !g' in ST and poloidal grill direction
                 !yn3 = zero                 !Nfi=0
                 !xm = yn*dsqrt(g22)/si      !given Npar at Nfi=0
-                yn3 = point%Npol**dsqrt(g33)/co     
+                yn3 = point%Npol*dsqrt(g33)/co     
                 xm = point%Ntor*dsqrt(g22)/si
 !!              xm=yn*dsqrt(g22)         !given yn=(N*jpol) at Nfi=0
             else !usual tokamak and toroidal grill direction
@@ -408,3 +408,4 @@ contains
     end    
 
 end module manager_mod
+
