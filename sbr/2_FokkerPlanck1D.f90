@@ -52,7 +52,7 @@ module FokkerPlanck1D_mod ! the module name defines the namespace
         this%v = v
         this%f = f
         this%i0 = size(v)
-        this%alfa2 = e
+        this%alfa2 = 0 !e
         n = v_lim/h0-1
         h = v_lim/dble(n+1)
         if (h.gt.h0) then

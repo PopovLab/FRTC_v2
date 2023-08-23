@@ -1,5 +1,5 @@
 module manager_mod
-    !! модуль определяет начальные значения лучей и запускает трассировку
+    !! ������ ���������� ��������� �������� ����� � ��������� �����������
     use kind_module
     implicit none
 
@@ -279,17 +279,20 @@ contains
             ivar = 1
             call disp2(pa,xm,tet,xnr,prt,prm)
             if (inew.gt.0) then !g' in ST and poloidal grill direction
-                !yn3 = zero                 !Nfi=0
-                !xm = yn*dsqrt(g22)/si      !given Npar at Nfi=0
-                yn3 = point%Ntor*dsqrt(g33)     
-                xm = point%Npol*dsqrt(g22)
+                yn3 = zero                 !Nfi=0
+               ! xm = yn*dsqrt(g22)/si      !given Npar at Nfi=0
+		xm = point%Ntor*dsqrt(g22)/si      !given Npar at Nfi=0
+
+               ! yn3 = point%Ntor*dsqrt(g33)   !correct 2d tor 
+               ! xm = point%Npol*dsqrt(g22)    !correct 2d  pol
 !!              xm=yn*dsqrt(g22)         !given yn=(N*jpol) at Nfi=0
             else !usual tokamak and toroidal grill direction
-                !xm = zero               !N2=0
+                xm = zero               !N2=0
+                yn3 = point%Ntor*dsqrt(g33)/co  !if given Npar at Nteta=0
                 !yn3 = yn*dsqrt(g33)/co  !if given Npar at Nteta=0
-!!              yn3=yn*dsqrt(g33)       !if given Nfi at Nteta=0
-                yn3 = point%Ntor*dsqrt(g33)    
-                xm = point%Npol*dsqrt(g22)
+!!             ! yn3=yn*dsqrt(g33)       !if given Nfi at Nteta=0
+               ! yn3 = point%Ntor*dsqrt(g33)  !correct 2d tor  
+               ! xm = point%Npol*dsqrt(g22)   !correct 2d tor
             end if
             ivar = 0
             iroot = 2
@@ -408,3 +411,4 @@ contains
     end    
 
 end module manager_mod
+
