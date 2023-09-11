@@ -95,7 +95,7 @@ contains
         delta(1) = 0.0d0      !putting delta(rh=0.)=0.
         gamm(1) = 0.0d0       !putting gamm(rh=0.)=0.
   
-        b_tor0=1.d4*BTOR*RTOR/(RTOR+SHIF(1)) !B_tor_(magnetic axis), Gauss
+        b_tor0=1.d4*BTOR*RTOR/(RTOR+SHIF(1)) !B_tor_(magnetic axis), Gauss    !!!!08.09.2023 - added
         rm=1.d2*ABC                       !minor radius in mid-plane, cm
         r0=1.d2*(RTOR+SHIF(1))     !x-coordinate of the magnetic axis, cm
         z0=1.d2*UPDWN              !z-coordinate of the magnetic axis, cm

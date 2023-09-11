@@ -203,7 +203,7 @@ contains
         yny= - (yn2*g2v1*co-yn3*g3v*si)
         if(inew.gt.0) then
             if(inew.eq.1) then
-                    yny= - (yn2*g2v1*co-yn3*g3v*si)
+                    yny= - (yn2*g2v1*co-yn3*g3v*si)  !!! 08/09 -
                    ! yny= - (yn2*g2v1-yn3*g3v)
                 else if(inew.eq.2) then
                     yny= - g2jq*(yn2*g2v1*co-yn3*g3v*si)
@@ -363,8 +363,8 @@ contains
         if(inew.gt.0) then
             gprt=-c0**2/ww**2*fnr/u*u1t*xsz
             if(inew.eq.1) then
-                ynyt= - (yn2*cot*g2v1-yn2*co*g2v1**3/two*g22t - (yn3*sit*g3v-yn3*si*g3v**3/two*g33t))
-                dnym= - co*g2v1
+                ynyt= - (yn2*cot*g2v1-yn2*co*g2v1**3/two*g22t - (yn3*sit*g3v-yn3*si*g3v**3/two*g33t))  !!! 08/09 -
+                dnym= - co*g2v1  !!! 08/09 -
             else if(inew.eq.2) then
                 ynyt= - g2jq*(yn2*cot*g2v1-yn2*co*g2v1**3/two*g22t - (yn3*sit*g3v-yn3*si*g3v**3/two*g33t))
                 ynyt=ynyt - g2jqt*(yn2*g2v1*co-yn3*g3v*si)
@@ -591,7 +591,7 @@ contains
         !est !sav2009
         if(inew.gt.0) then
             if(inew.eq.1) then
-                yny= - (yn2*co/g22q-yn3*si/g33q)
+                yny= - (yn2*co/g22q-yn3*si/g33q)  !!! 08/09
             else if(inew.eq.2) then
                 yny= - g2jq*(yn2*co/g22q-yn3*si/g33q)
             end if
@@ -672,9 +672,9 @@ contains
         if (inew.gt.0) then
             if(inew.eq.1) then
                 ynyr= - (yn2*(cor/g22q-co/g22q**2*g22qr)&
-                        -yn3*(sir/g33q-si/g33q**2*g33qr))
+                        -yn3*(sir/g33q-si/g33q**2*g33qr))   !!! 08/09 -
                 ynyt= - (yn2*(cot/g22q-co/g22q**2*g22qt)-&
-                        -yn3*(sit/g33q-si/g33q**2*g33qt))
+                        -yn3*(sit/g33q-si/g33q**2*g33qt))   !!! 08/09 -
             else if(inew.eq.2) then
                 ynyr= - g2jq*(yn2*(cor/g22q-co/g22q**2*g22qr)&
                                 -yn3*(sir/g33q-si/g33q**2*g33qr))
@@ -708,7 +708,7 @@ contains
         !est !sav2009
         if (inew.gt.0) then
             if(inew.eq.1) then
-                dny= - gpr*(ynpopq+ynzq-e3)
+                dny= - gpr*(ynpopq+ynzq-e3)  !!!! 08/09 - 
             else if(inew.eq.2) then
                 dny= - g2jq*gpr*(ynpopq+ynzq-e3)
             end if

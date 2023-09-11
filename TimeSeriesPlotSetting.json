@@ -3,7 +3,6 @@
   "title": "Time Series data",
   "plots": {
     "ax1": [
-      "QLh",
       "IPL",
       "ICD"
     ],
