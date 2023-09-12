@@ -8,18 +8,36 @@ RTOR            0.55               !major radius of a chamber, m
 AB              0.075              !midplane limiter position
 ABC             0.075              !midplane calculation boundary
 AWALL           0.08               !wall position in horizontal axis
-BTOR            2.2                !tor.vac.magn.field cham.cent.,T
 ELONM           1.0                !elong. of the chamber
 ELONG           1.0                !elong. of the limiting magn. surface
 TRICH           0.0                !trian. of the chamber
 TRIAN           0.0                !trian. of the last magnetic surface
 AMJ             2.0                !mass of main ions
 ZMJ             1.0                !charge of main ions
-NB1             100                !transport grid ()
+NB1             51                !transport grid ()
 UPDWN           0.00               !up-down shift
+   
 
+BTOR    .0280    2.144    
+BTOR    .0300    2.153    
+BTOR    .0320    2.141    
+BTOR    .0340    2.127    
+BTOR    .0360    2.089    
+BTOR    .0380    1.840    
 
+!QLH
+ZRD1    0.029   0.000
+ZRD1    0.030   0.000
+ZRD1    0.031   0.02
+ZRD1    0.032   0.055
+ZRD1    0.033   0.070
+ZRD1    0.034   0.062
+ZRD1    0.035   0.052
+ZRD1    0.036   0.022
+ZRD1    0.037   0.000
+ZRD1    0.038   0.000
 
+!Uexp
 NTIMES   469    NAMEXP ZRD2  
   0.2004E-01  0.2011E-01  0.2018E-01  0.2025E-01  0.2032E-01  0.2038E-01
   0.2045E-01  0.2052E-01  0.2059E-01  0.2066E-01  0.2072E-01  0.2079E-01
@@ -340,32 +358,82 @@ NTIMES   469    NAMEXP ZRD3
   0.1344E-01  0.1334E-01  0.1325E-01  0.1317E-01  0.1309E-01  0.1295E-01
   0.1295E-01
 
-POINTS   7 GRIDTYPE 10 NAMEXP CAR7X NTIMES 1 
-.025
- .00   .01    .02    .03    .045   .055   .06
-0.    0.     1.     1.     1.     0.     0.
+
+POINTS   7 GRIDTYPE 10 NAMEXP CAR7X NTIMES 1
+.030
+.00 .01  .02  .03  .045 .055 .06
+0 0 1 1 1 0 0
   
-POINTS   11 GRIDTYPE 10 NAMEXP NEX NTIMES 1
-.025 
-.0  .0075   .015   .0225  .03    .0375  .0450  .0525  .0600  .0675  .0750
-.6  .5704   .49    .3804  .2669  .1692  .097   .0502  .235   .1     .0038   
+POINTS   8 GRIDTYPE 10 NAMEXP NEX NTIMES 1
+0.028 
+.0000  .0070  .0171  .0209  .0308  .0455  .0606  .0750
+0.6    0.55   0.5  0.45  0.44  0.25  0.23  0.12    !interferometer
+
+POINTS   8 GRIDTYPE 10 NAMEXP NEX NTIMES 1
+0.031
+.0000  .0070  .0171  .0209  .0308  .0455  .0606  .0750
+0.58    0.56   0.5  0.41  0.40  0.26  0.23  0.1  !interferometer
+
+POINTS   8 GRIDTYPE 10 NAMEXP NEX NTIMES 1
+0.036
+.0000  .0070  .0171  .0209  .0308  .0455  .0606  .0750
+0.568    0.56   0.5  0.41  0.40  0.26  0.23  0.1  !interferometer
+
+POINTS   8 GRIDTYPE 10 NAMEXP NEX NTIMES 1
+0.037
+.0000  .0070  .0171  .0209  .0308  .0455  .0606  .0750
+0.558    0.556   0.5  0.41  0.40  0.26  0.23  0.1  !interferometer
+
+POINTS   8 GRIDTYPE 10 NAMEXP NEX NTIMES 1
+0.038
+.0000  .0070  .0171  .0209  .0308  .0455  .0606  .0750
+0.38    0.36   0.3  0.291  0.29  0.26  0.23  0.1  !interferometer
 
 
-POINTS   13 GRIDTYPE 11 NAMEXP TEX NTIMES 1
-.025 
-.0  .0075   .015   .0225  .03    .0375  .0450  .0525  .0600  .0675  .0750
-.55 .54     .5     .38    .27    .17    .1     .05    .24    .11    .004   
+POINTS   8 GRIDTYPE 10 NAMEXP TEX NTIMES 1
+0.028 
+.0000  .0070  .0171  .0209  .0308  .0455  .0606  .0750
+.3700  .3600  .2800  .2500  .1500  .1250  .1050  .0500
+
+POINTS   8 GRIDTYPE 10 NAMEXP TEX NTIMES 1
+0.032 
+.0000  .0070  .0171  .0209  .0308  .0455  .0606  .0750
+.4000  .3660  .2980  .2600  .1550  .1250  .1050  .1000
 
 
 POINTS    16    GRIDTYPE 1    NAMEXP TIX    NTIMES 1
-.025
+.0280 
 .164 .163 .162 .156 .150 .146 .142 .132 .122 .111 .100 .087 .074 .060 .046 .020
 
+
 POINTS    9    GRIDTYPE 10    NAMEXP PRAD    NTIMES 4
-.025   .026   .027   .0282
+.0300  .0326  .0347  .0382
 .0000  .0069  .0177  .0286  .0394  .0502  .0610  .0718  .0826
 .0717  .0772  .0918  .1000  .1125  .1215  .1589  .1212  .0000
 .0844  .0806  .0891  .0962  .0979  .1122  .1636  .1061  .0000
 .0960  .0969  .0986  .1027  .0982  .1103  .1598  .1061  .0000
 .1205  .1227  .1160  .1155  .1097  .1186  .1642  .0758  .0000
+
+
+POINTS   6 GRIDTYPE 10 NAMEXP ZEFX NTIMES 1
+0.028 
+.0020  .0147  .0304  .0452  .0609  .0750
+1.8    1.8    1.8    1.8    1.800  1.800
+
+POINTS   6 GRIDTYPE 10 NAMEXP ZEFX NTIMES 1
+0.032 
+.0020  .0147  .0304  .0452  .0609  .0750
+2.      2.      2.      2.1    2.1    2.1
+
+POINTS   6 GRIDTYPE 10 NAMEXP ZEFX NTIMES 1
+0.034 
+.0020  .0147  .0304  .0452  .0609  .0750
+2.5      2.5      2.5      2.5    2.5    2.5
+
+POINTS   6 GRIDTYPE 10 NAMEXP ZEFX NTIMES 1
+0.038 
+.0020  .0147  .0304  .0452  .0609  .0750
+1.5    1.5    1.5    1.5    1.5    1.5   
+   
+
 

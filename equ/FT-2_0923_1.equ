@@ -1,0 +1,81 @@
+TAUMAX = 1.d-6;!MAXIMUM TIMESTEP
+TSTART = 0.028;!START TIME 
+TEND = 0.038;!END TIME
+
+DPOUT = 1.d-4;!TIME OUTPUT INTERVAL
+DROUT = 1.d-4;!RADIAL PROF OUTPUT INTERVAL
+DTOUT = 1.d-5 ;!TIME VARIABLES OUTPUT INTERVAL
+
+TINIT = 0.025;!TIME AXIS INITIAL TIME
+TSCALE = 1.d-1;!TIME AXIS SCALE
+
+NEOCL(100)<:;
+
+!=========Ion temperature============
+TI:AS;
+
+TI = TIX;
+
+!=========Electron temperature=======
+TE:AS;
+
+TE = TEX;
+
+!==========Plasma Composition========
+AMAIN = AMJ;
+ZMAIN = ZMJ;
+AIM1 = 12;
+ZIM1 = 6;
+ZEF = ZEFX;
+!==========NEUT============
+
+!=========DENSITY============
+NE:AS;
+NE = NEX;
+
+
+NIZ1 = NE*(ZEF-ZMJ)/(ZIM1-ZMJ)/ZIM1;
+NI = NE*(ZIM1-ZEF)/(ZIM1-ZMJ)/ZMJ;
+!========Current Density===========
+IPL = 0.025; !current density
+CU:EQ;
+CAR31 = CNHR + CCMHD;
+CC = CNHR + CCMHD; !cundactivity 
+
+!=========Equilibrium solver=========
+NBND = 100;
+NEQUIL = 41; !Eq. solver grid [<= none, 1 freeze eq., >= 42 - ESC)
+!===========Dynamic FRTC===========
+QLH = ZRD1;
+DSTART = 0.028;
+
+CF1 = 0.1d-3;  !interval between lhcd() calls, sec
+CF2 = 0.031d0;  !first call of lhcd()
+
+debug:0.001:DSTART::;
+saveprofiles::CF2:CF3:;
+lhcd2017(PELH):CF1:CF2:CF3:;
+drivencurrent(CULH,CAR32)::CF2:CF3:;
+
+!CULH= driven curren density by stopped electrons, MA/m^2
+!PELH= total power deposition into electrons, MW/m^3
+CD = CULH;   !Externally driven current density profile, MA/m^2
+CCD1 = VINT(PELHB);   !absorbed QLH power
+CCD2 = IINT(CULHB);   !driven current
+
+!====================   Radial output  =================================
+J\CU\-1;       Plh\PELH;      Johm\CUOHM\8;   E\UPL/RTOR/GP2;
+Poh\POH\-2;    Te\TE\\TEX;    CC\CC\-3;       Q\1./MU;
+Jlh\CULH\-1;   Upl\UPL;       Jlh\CULH\8;     En\CAR24;
+Plh\PELH\-2;   Ne\NE\\NEX;    sig\CAR32\-3;    Chr\CAR31;   
+
+
+!====================  Time output  ====================================
+Ilh_ILHB_-10;      Qlh_QLH_-5;
+U_UPLB_2;          Iohm_IOHMB_-10;
+Ux_ZRD2_2;         PLH_CCD1;
+Ipl_IPL_-10;       q(0)_1.d0/MUC;
+L_LINT_2;          IBS_CUBSB_-21;
+
+
+

@@ -2,7 +2,7 @@
   "name": "FT-2_new",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n",
+      "value": "Comments about ....\n\n\n",
       "title": "Comments",
       "type": "text"
     },
@@ -304,7 +304,7 @@
     },
     "spectrum": {
       "spectrum_type": "spectrum_1D",
-      "source": "C:/Users/user1/Desktop/FT-2/FSP1",
+      "source": "C:/Users/user1/Desktop/FT-2/FT2_sp_old2017.txt",
       "parameters": {
         "angle": {
           "title": "Angle",

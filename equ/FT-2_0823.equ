@@ -1,7 +1,7 @@
 
 TAUMAX = 1.d-6;!MAXIMUM TIMESTEP
 TSTART = 0.02 ;!START TIME 
-TEND = 0.045;!END TIME
+TEND = 0.0425;!END TIME
 
 DPOUT = 1.d-4;!TIME OUTPUT INTERVAL
 DROUT = 1.d-4;!RADIAL PROF OUTPUT INTERVAL
@@ -9,7 +9,7 @@ DTOUT = 1.d-5 ;!TIME VARIABLES OUTPUT INTERVAL
 
 TINIT = 0.019;!TIME AXIS INITIAL TIME
 TSCALE = 1.d-4;!TIME AXIS SCALE
-TPAUSE = ;!TIME TO SET /PAUSE/ MODE
+TPAUSE = 0.045;!TIME TO SET /PAUSE/ MODE
 
 NEOCL(100)<:;
 
@@ -36,21 +36,31 @@ VTOR = 1.0d3*GP2*(CAR10-1.0)*GRAD(TI)/(1.d-5+GRAD(FP)); !TOROIDAL ROTATION SPEED
 !=========Electron temperature=======
 
 TE:AS;
-
+TE=TEX;
 ZRD44 = 1-0.3*(FRAMP(0.2,0.21));
 CAR21 = (0.72-0.17)*((1-(AMETR/0.223)**1.5)**7)+0.17;
 CAR22 = (0.17-0.02)*((1-(AMETR/0.223)**15)**2)+0.02;
 CAR23 = CAR21*STEP(0.171-AMETR)+CAR22*STEP(AMETR-0.171)+0.001;
-TE = CAR23*ZRD44;   !exp TE = 0.55;
+!TE = CAR23*ZRD44;
 
 HE = 6.0*(1-FRAMP(0.120,0.135))+(0.9*4.7*(1.-FJUMP(0.165))+2*FJUMP(0.165));
 PEX = PELH; !Electron heating due to LHCD
 PE = POH-PENEU-PENLI-PRAD+PELH;
 
+!============Stationary FRTC 2014============
+QLH = 0.7d0;
+
+CF1 = 0.5d-3;
+CF2 = 0.02;
+
+CCD1=VINT(PELHB);   !absorbed QLH power
+CCD2=IINT(CULHB);   !driven current
+CCD3=VINT(CAR12B);  !absorbed power via collisional damping
+
 !===========Dynamic FRTC===========
 
-CF1 =  ;!
-CF2 =  ;!
+CF1 =  0.5d-3;!
+CF2 =  0.02;!
 DSTART = 0.025;! 
 
 debug:0.001:DSTART::;
@@ -69,8 +79,7 @@ IPL = O.O25; !PLASMA CURRENT MA
 
 CU:Eq;
 
-CU = Eq; !J||
-
+CU = Eq;
 CC = "work(j,303)"; !CUNDUCTIVITY 
 
 CD = CULH; !PRE-CACULATED DRIVEN CURRENT
@@ -136,3 +145,9 @@ Vexp_ZRD2_-2;
 L_LINT_2;
 V_UPLB_-2; 
 ICD_ILHB_-21;
+
+
+
+
+
+
