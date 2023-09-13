@@ -41,13 +41,14 @@ IPL = 0.025; !current density
 CU:EQ;
 CAR31 = CNHR + CCMHD;
 CC = CNHR + CCMHD; !cundactivity 
+!CC="work(j,303)";
 
 !=========Equilibrium solver=========
 NBND = 100;
 NEQUIL = 41; !Eq. solver grid [<= none, 1 freeze eq., >= 42 - ESC)
 !===========Dynamic FRTC===========
 QLH = ZRD1;
-DSTART = 0.028;
+DSTART = 0.029;
 
 CF1 = 0.1d-3;  !interval between lhcd() calls, sec
 CF2 = 0.031d0;  !first call of lhcd()
@@ -64,18 +65,29 @@ CCD1 = VINT(PELHB);   !absorbed QLH power
 CCD2 = IINT(CULHB);   !driven current
 
 !====================   Radial output  =================================
-J\CU\-1;       Plh\PELH;      Johm\CUOHM\8;   E\UPL/RTOR/GP2;
-Poh\POH\-2;    Te\TE\\TEX;    CC\CC\-3;       Q\1./MU;
-Jlh\CULH\-1;   Upl\UPL;       Jlh\CULH\8;     En\CAR24;
-Plh\PELH\-2;   Ne\NE\\NEX;    sig\CAR32\-3;    Chr\CAR31;   
+J\CU\-1;       Plh\PELH;   Johm\CUOHM\8;   E\UPL/(RTOR+AMETR)/GP2;
+Te\TE\\TEX;	En\CAR24;      CC\CC\-3;      Q\1./MU;
+Jlh\CULH\-1;   Upl\UPL;    Zef\ZEF\-1;     Poh\POH\-2;
+Plh\PELH\-2;   Ne\NE\\NEX;    sig\CAR32\-3;    Chr\CAR31; 
+  
 
 
-!====================  Time output  ====================================
-Ilh_ILHB_-10;      Qlh_QLH_-5;
-U_UPLB_2;          Iohm_IOHMB_-10;
-Ux_ZRD2_2;         PLH_CCD1;
-Ipl_IPL_-10;       q(0)_1.d0/MUC;
-L_LINT_2;          IBS_CUBSB_-21;
+!====================  Time output  ===================================
+
+QLh_QLH_-5;
+IPL_IPL_-21;
+IBS_CUBSB_-21;
+Iohm_IOHMB_-10;
+Vexp_ZRD2_2;
+L_LINT_2;
+V_UPLB_2; 
+ICD_ILHB_-21;
+
+
+
+
+
+
 
 
 

@@ -18,20 +18,20 @@ NB1             51                !transport grid ()
 UPDWN           0.00               !up-down shift
    
 
-BTOR    .0280    2.144    
+BTOR    .0280    2.200    
 BTOR    .0300    2.153    
 BTOR    .0320    2.141    
 BTOR    .0340    2.127    
 BTOR    .0360    2.089    
-BTOR    .0380    1.840    
+BTOR    .0380    2.040    
 
 !QLH
 ZRD1    0.029   0.000
 ZRD1    0.030   0.000
-ZRD1    0.031   0.02
+ZRD1    0.031   0.001
 ZRD1    0.032   0.055
 ZRD1    0.033   0.070
-ZRD1    0.034   0.062
+ZRD1    0.034   0.068
 ZRD1    0.035   0.052
 ZRD1    0.036   0.022
 ZRD1    0.037   0.000
@@ -400,11 +400,9 @@ POINTS   8 GRIDTYPE 10 NAMEXP TEX NTIMES 1
 .0000  .0070  .0171  .0209  .0308  .0455  .0606  .0750
 .4000  .3660  .2980  .2600  .1550  .1250  .1050  .1000
 
-
 POINTS    16    GRIDTYPE 1    NAMEXP TIX    NTIMES 1
-.0280 
+.0300 
 .164 .163 .162 .156 .150 .146 .142 .132 .122 .111 .100 .087 .074 .060 .046 .020
-
 
 POINTS    9    GRIDTYPE 10    NAMEXP PRAD    NTIMES 4
 .0300  .0326  .0347  .0382
@@ -423,17 +421,23 @@ POINTS   6 GRIDTYPE 10 NAMEXP ZEFX NTIMES 1
 POINTS   6 GRIDTYPE 10 NAMEXP ZEFX NTIMES 1
 0.032 
 .0020  .0147  .0304  .0452  .0609  .0750
-2.      2.      2.      2.1    2.1    2.1
+2.4      2.4      2.4      2.1    2.1    2.1
 
 POINTS   6 GRIDTYPE 10 NAMEXP ZEFX NTIMES 1
 0.034 
 .0020  .0147  .0304  .0452  .0609  .0750
-2.5      2.5      2.5      2.5    2.5    2.5
+2.5      2.5   2.5      2.1    2.1    2.1
 
 POINTS   6 GRIDTYPE 10 NAMEXP ZEFX NTIMES 1
 0.038 
 .0020  .0147  .0304  .0452  .0609  .0750
-1.5    1.5    1.5    1.5    1.5    1.5   
+2.5    2.5    2.5    2.1    2.1    2.1   
    
+
+
+
+
+
+
 
 
