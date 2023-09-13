@@ -1,5 +1,6 @@
 !DELVAR = 1.01;
 TAUMAX = 1.e-4;
+TAUMIN=1.d-5;
 DPOUT=1.d-4;  
 DROUT=1.d-4;
 DTOUT=0.00001;
@@ -65,7 +66,7 @@ QLH=4.0d0;
 CF1=0.1d-3;  !interval between lhcd() calls, sec
 CF2=0.180d0;  !first call of lhcd()
 CF3=0.21d0;
-DSTART=0.16;
+DSTART=0.175;
 debug:0.0001:DSTART::;
 saveprofiles::CF2:CF3:;
 lhcd2017(PELH):CF1:CF2:CF3:;
@@ -145,10 +146,13 @@ QLh_QLH_-5;
 IPL_IPL_-21;
 IBS_CUBSB_-21;
 Iohm_IOHMB_-10;
-Vexp_ZRD2_2;
+
 L_LINT_2;
 V_UPLB_2; 
 ICD_ILHB_-21;
+
+
+
 
 
 

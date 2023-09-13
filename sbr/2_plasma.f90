@@ -418,7 +418,7 @@ contains
             !print *, vclt
             !call init_vi(vclt, vij(:,j))
             vij(1:i0,j) = create_vt_grid(vclt)
-           ! enorm(j)=0 !if without electric field
+            enorm(j)=0 !if without electric field
             call init_fmaxw_classic(vclt,enorm(j),fij(:,j,1),dfij(:,j,1))
             !call init_fmaxw_classic(vclt,0,fij(:,j,1),dfij(:,j,1))
             call init_fmaxw_ext(vclt,enorm(j),fij(:,j,2),dfij(:,j,2))  
