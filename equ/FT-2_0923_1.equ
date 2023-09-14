@@ -13,14 +13,18 @@ NEOCL(100)<:;
 
 !=========Ion temperature============
 TI:AS;
-
 TI = TIX;
+
+PI=-PET*TE+PINEU;	
+XI=HE+CHE4*HNGSI;
 
 !=========Electron temperature=======
 TE:AS;
 
 TE = TEX;
 
+PRAD=PRADX;
+PE=PJOUL-PEICL-PRADX;
 !==========Plasma Composition========
 AMAIN = AMJ;
 ZMAIN = ZMJ;
@@ -28,7 +32,12 @@ AIM1 = 12;
 ZIM1 = 6;
 ZEF = ZEFX;
 !==========NEUT============
-
+!NEUT:;
+!NNCL=0.5*2.e-2*(FRAMP(0.1,0.165))*(1-FJUMP(0.165))+0.5*4.5e-3*FJUMP(0.165); 
+!NNWM=0.45e-4*(1-FJUMP(0.180));
+!SN=SNNEU*NE+SNEBM;
+!SN=SNNEU*NE+CAR20;
+!SNN = SNNEU-SNNR;
 !=========DENSITY============
 NE:AS;
 NE = NEX;
@@ -39,6 +48,7 @@ NI = NE*(ZIM1-ZEF)/(ZIM1-ZMJ)/ZMJ;
 !========Current Density===========
 IPL = 0.025; !current density
 CU:EQ;
+CU=FPR;
 CAR31 = CNHR + CCMHD;
 CC = CNHR + CCMHD; !cundactivity 
 !CC="work(j,303)";
@@ -52,6 +62,7 @@ DSTART = 0.029;
 
 CF1 = 0.1d-3;  !interval between lhcd() calls, sec
 CF2 = 0.031d0;  !first call of lhcd()
+CF3 = 0.036d0;
 
 debug:0.001:DSTART::;
 saveprofiles::CF2:CF3:;
@@ -60,6 +71,7 @@ drivencurrent(CULH,CAR32)::CF2:CF3:;
 
 !CULH= driven curren density by stopped electrons, MA/m^2
 !PELH= total power deposition into electrons, MW/m^3
+
 CD = CULH;   !Externally driven current density profile, MA/m^2
 CCD1 = VINT(PELHB);   !absorbed QLH power
 CCD2 = IINT(CULHB);   !driven current
@@ -73,7 +85,6 @@ Plh\PELH\-2;   Ne\NE\\NEX;    sig\CAR32\-3;    Chr\CAR31;
 
 
 !====================  Time output  ===================================
-
 QLh_QLH_-5;
 IPL_IPL_-21;
 IBS_CUBSB_-21;
@@ -82,6 +93,9 @@ Vexp_ZRD2_2;
 L_LINT_2;
 V_UPLB_2; 
 ICD_ILHB_-21;
+
+
+
 
 
 
