@@ -292,8 +292,12 @@ contains
                ! xm = point%Npol*dsqrt(g22)    !correct 2d  pol
 !!              xm=yn*dsqrt(g22)         !given yn=(N*jpol) at Nfi=0
             else !usual tokamak and toroidal grill direction
-                xm = zero               !N2=0
-                yn3 = point%Ntor*dsqrt(g33)/co  !if given Npar at Nteta=0
+               !!!poloidal
+               yn3 = zero                 !Nfi=0
+                xm = point%Ntor*dsqrt(g22)/si      !given Npar at Nfi=0 
+            !!!toroidal
+               ! xm = zero               !N2=0
+              !  yn3 = point%Ntor*dsqrt(g33)/co  !if given Npar at Nteta=0
                 !yn3 = yn*dsqrt(g33)/co  !if given Npar at Nteta=0
 !!             ! yn3=yn*dsqrt(g33)       !if given Nfi at Nteta=0
                ! yn3 = point%Ntor*dsqrt(g33)  !correct 2d tor  

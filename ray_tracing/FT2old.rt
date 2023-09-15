@@ -1,15 +1,15 @@
 {
-  "name": "T15 model",
+  "name": "FT2old",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "value": "Comments about ....\n",
       "title": "Comments",
       "type": "text"
     },
     "Physical parameters": {
       "Freq": {
         "title": "Frequency",
-        "value": 2.45,
+        "value": 0.92,
         "unit": "GHz",
         "type": "float",
         "description": "RF frequency, GHz"
@@ -40,7 +40,7 @@
       },
       "dni2": {
         "title": "dni2",
-        "value": 0.0,
+        "value": 0.03,
         "type": "float",
         "description": "Ni2/Ni1, relative density of ions 2"
       },
@@ -277,14 +277,14 @@
     "grill parameters": {
       "Zplus": {
         "title": "Zplus",
-        "value": 20.0,
+        "value": 11,
         "type": "float",
         "unit": "cm",
         "description": "upper grill corner in centimeters"
       },
       "Zminus": {
         "title": "Zminus",
-        "value": -20.0,
+        "value": -11,
         "type": "float",
         "unit": "cm",
         "description": "lower grill corner in centimeters"
@@ -303,14 +303,8 @@
       }
     },
     "spectrum": {
-      "spectrum_type": "gaussian",
-      "options": {
-        "x_min": -8.0,
-        "x_max": 0.0,
-        "step": 0.05,
-        "bias": -1.9,
-        "sigma": 0.2
-      },
+      "spectrum_type": "spectrum_1D",
+      "source": "D:/PopovLab/FRTC_v2/ray_tracing/FT2_sp_old2017.txt",
       "parameters": {
         "angle": {
           "title": "Angle",

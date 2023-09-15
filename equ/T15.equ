@@ -1,5 +1,6 @@
 !DELVAR = 1.01;
 TAUMAX = 1.e-4;
+TAUMIN=1.d-5;
 DPOUT=1.d-4;  
 DROUT=1.d-4;
 DTOUT=0.00001;
@@ -133,7 +134,7 @@ PE=POH-PENEU-PENLI-PRAD+PELH;
 
 !====================   Radial output  =================================
 J\CU\-1;       Plh\PELH;   Johm\CUOHM\8;   E\UPL/(RTOR+AMETR)/GP2;
-Te\TE\\TEX;	Plh\PELH\-2;   CC\CC\-3;      Q\1./MU;
+Te\TE\\TEX;	Plh2\PELH\-2;   CC\CC\-3;      Q\1./MU;
 Jlh\CULH\-1;   Upl\UPL;    Zef\ZEF\-1;     Poh\POH\-2;
 Ti\TI\\TIX;      Ne\NE\\NEX;    sig\CAR32\-3;    Chr\CAR31; 
   
@@ -145,10 +146,13 @@ QLh_QLH_-5;
 IPL_IPL_-21;
 IBS_CUBSB_-21;
 Iohm_IOHMB_-10;
-Vexp_ZRD2_2;
+
 L_LINT_2;
 V_UPLB_2; 
 ICD_ILHB_-21;
+
+
+
 
 
 
