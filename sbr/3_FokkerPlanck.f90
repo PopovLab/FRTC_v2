@@ -56,8 +56,8 @@ subroutine fokkerplanck_compute(time, TAU)
             kindex=k
             flag_d0=.TRUE. ! d(x) enable
            !!!if without electric field
-           znak=0
-           ! znak=2.d0*dble(k)-3.d0
+           !znak=0
+            znak=2.d0*dble(k)-3.d0
             fokker_planck = FokkerPlanck1D(znak*enorm(j), xend, vij(:,j), fij0(:,j,k))
             call fokker_planck%init_zero_diffusion
             do i=1, ntau

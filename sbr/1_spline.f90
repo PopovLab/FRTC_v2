@@ -5,12 +5,13 @@ module spline_module
     
 contains
     subroutine splne(x,y,n,y2)
-        integer, parameter :: nn=2001
+        integer, parameter :: nn=3001
         real(wp), parameter :: zero=0d0
         integer n
         real(wp) x(n),y(n),y2(n),u(nn)
         integer i,k
         real(wp) p,qn,un,sig
+       ! print *, 'nn=', nn
         if(n.gt.nn) stop 'n>nn in splne!'
             y2(1)=zero
             u(1)=zero

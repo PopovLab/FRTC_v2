@@ -5,7 +5,8 @@ module lhcd_module
     
     real(wp), dimension(:), allocatable:: vvj, vdfj
 
-    integer, parameter :: kpt1=20, kpt3=20
+    integer, parameter :: kpt1=40, kpt3=10
+   ! integer, parameter :: kpt1=100, kpt3=100
 
 contains
     subroutine ourlhcd2017(spectr, outpe, pe_out)      
@@ -96,11 +97,11 @@ contains
         ipt1=kpt1+1
         ipt2=ni1+ni2
         ipt=ipt1+ni1+ni2+kpt3
-        if(ipt.gt.101) then
-            write(*,*)'ipt >101'
-            pause'stop program'
-            stop
-        end if
+       ! if(ipt.gt.101) then
+       !     write(*,*)'ipt >101'
+       !     pause'stop program'
+       !     stop
+       ! end if
         nvpt=ipt
 
         do j=1,nr                  ! begin 'rho' cycle

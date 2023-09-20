@@ -1,15 +1,15 @@
 {
-  "name": "T15 model",
+  "name": "Globus_gelik_nt_2",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
     "Physical parameters": {
       "Freq": {
         "title": "Frequency",
-        "value": 2.45,
+        "value": 0.5,
         "unit": "GHz",
         "type": "float",
         "description": "RF frequency, GHz"
@@ -34,7 +34,7 @@
       },
       "zi2": {
         "title": "zi2",
-        "value": 0.0,
+        "value": 8.0,
         "type": "float",
         "description": "charge of ions 2"
       },
@@ -159,7 +159,7 @@
       },
       "pabs": {
         "title": "pabs",
-        "value": 0.01,
+        "value": 10.01,
         "type": "float",
         "description": "part of remaining power interp. as absorption"
       },
@@ -171,13 +171,13 @@
       },
       "ni1": {
         "title": "ni1",
-        "value": 25,
+        "value": 20,
         "type": "int",
         "description": "grid number in the left part of Vz plato"
       },
       "ni2": {
         "title": "ni2",
-        "value": 25,
+        "value": 20,
         "type": "int",
         "description": "grid number in the right part of Vz plato"
       },
@@ -233,13 +233,13 @@
       },
       "iw": {
         "title": "iw",
-        "value": 1,
+        "value": -1,
         "type": "int",
         "description": "initial mode (slow=1, fast=-1)"
       },
       "ismth": {
         "title": "ismth",
-        "value": 1,
+        "value": 0,
         "type": "int",
         "description": "if=0, no smoothing in Ne(rho),Te(rho),Ti(rho)"
       },
@@ -277,14 +277,14 @@
     "grill parameters": {
       "Zplus": {
         "title": "Zplus",
-        "value": 20.0,
+        "value": 11.0,
         "type": "float",
         "unit": "cm",
         "description": "upper grill corner in centimeters"
       },
       "Zminus": {
         "title": "Zminus",
-        "value": -20.0,
+        "value": -11.0,
         "type": "float",
         "unit": "cm",
         "description": "lower grill corner in centimeters"
@@ -305,11 +305,11 @@
     "spectrum": {
       "spectrum_type": "gaussian",
       "options": {
-        "x_min": -3.0,
-        "x_max": -0.8,
-        "step": 0.001,
-        "bias": -1.9,
-        "sigma": 0.2
+        "x_min": -6.0,
+        "x_max": -2.0,
+        "step": 0.01,
+        "bias": -4.0,
+        "sigma": 1.5
       },
       "parameters": {
         "angle": {
