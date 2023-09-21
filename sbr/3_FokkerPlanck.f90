@@ -54,6 +54,8 @@ subroutine fokkerplanck_compute(time, TAU)
         do k=1,2
             kindex=k
             flag_d0=.TRUE. ! d(x) enable
+           !!!if without electric field
+           !znak=0
             znak=2.d0*dble(k)-3.d0
             fokker_planck = FokkerPlanck1D(znak*enorm(j), xend, vij(:,j), fij0(:,j,k))
             call fokker_planck%init_zero_diffusion
@@ -73,14 +75,14 @@ subroutine fokkerplanck_compute(time, TAU)
             fij(:,j,k) = fokker_planck%f
         end do
    
-        call write_distribution(fij0(:,j,2), i0, time)
+        call write_distribution(fij(:,j,2), i0, time)
         !call write_distribution(out_fj, n, time)
     end do
 
     write(*,*)'fokkerplanck nr= ',nr,' ntau =',ntau, 'nt =', nt
 
 
-    call write_v_array(vij, fij0(:,1:nr,:), time, 'maxwell')
+    call write_v_array(vij, fij(:,1:nr,:), time, 'maxwell')
     call write_v_array(vij,  dij(:,1:nr,:), time, 'diffusion')
     !call write_matrix(dij(1:i0,1:nr,1), time, 'diffusion')
     !time2 = sys_time() - time1

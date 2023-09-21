@@ -1,0 +1,294 @@
+17:17:12: create AstraWorker
+17:17:12: exp: T-15_R6.exp, equ: T15.equ, rt: T15 model.rt, astra_profile: Astra-6 a5
+17:17:12: start 2023_09_19_17_17_11
+17:17:12: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/dat/*.*
+17:17:13: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/dat/XData/*.*
+17:17:13: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/diffusion/*.*
+17:17:13: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/maxwell/*.*
+17:17:13: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/maxwell_fij0/*.*
+17:17:13: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/distribution/*.*
+17:17:14: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/traj/*.*
+17:17:14: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/traj/pos/*.*
+17:17:14: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/traj/neg/*.*
+17:17:14: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/rt-result/*.*
+17:17:14: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/out/*.*
+17:17:15: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/plasma/*.*
+17:17:15: run_cmd: wsl --cd /home/nteplova/ASTRA-6 rm -f a5/lhcd/*.*
+17:17:16: copy : D:\dev\FRTC_v2\race_data.zip
+17:17:16: to: \\wsl$\Ubuntu\home\nteplova\ASTRA-6/a5
+17:17:16: run_cmd: wsl --cd /home/nteplova/ASTRA-6/a5 unzip -o race_data.zip
+17:17:16: Archive:  race_data.zip
+17:17:16:   inflating: exp/T-15_R6.exp
+17:17:16:   inflating: equ/T15.equ
+17:17:16:   inflating: lhcd/ray_tracing.dat
+17:17:16:   inflating: lhcd/spectrum.dat
+17:17:16:   inflating: sbr/0_kind_module.f90
+17:17:16:   inflating: sbr/1_approximation.f90
+17:17:16:   inflating: sbr/1_chang_cooper_solver.f90
+17:17:16:   inflating: sbr/1_chebyshev.f90
+17:17:16:   inflating: sbr/1_constants.f90
+17:17:16:   inflating: sbr/1_lock_module.f90
+17:17:16:   inflating: sbr/1_math.f90
+17:17:16:   inflating: sbr/1_maxwell.f90
+17:17:16:   inflating: sbr/1_rt_parameters.f90
+17:17:16:   inflating: sbr/1_runge_kutta.f90
+17:17:16:   inflating: sbr/1_savelyev_solver.f90
+17:17:16:   inflating: sbr/1_spline.f90
+17:17:16:   inflating: sbr/1_utils.f90
+17:17:16:   inflating: sbr/1_writer_module.f90
+17:17:16:   inflating: sbr/2_driven_current_module.f90
+17:17:16:   inflating: sbr/2_FokkerPlanck1D.f90
+17:17:16:   inflating: sbr/2_iterator_module.f90
+17:17:16:   inflating: sbr/2_plasma.f90
+17:17:16:   inflating: sbr/2_spectrum.f90
+17:17:16:   inflating: sbr/3_current_and_power.f90
+17:17:16:   inflating: sbr/3_dispersion.f90
+17:17:16:   inflating: sbr/3_driver_module.f90
+17:17:16:   inflating: sbr/3_flux_surface_mod.f90
+17:17:16:   inflating: sbr/3_FokkerPlanck.f90
+17:17:16:   inflating: sbr/3_iteration_result.f90
+17:17:16:   inflating: sbr/3_trajectory.f90
+17:17:16:   inflating: sbr/4_manager.f90
+17:17:16:   inflating: sbr/5_lhcd_module.f90
+17:17:16:   inflating: sbr/debug.f
+17:17:16:   inflating: sbr/drivencurrent.f
+17:17:16:   inflating: sbr/drivencurrent95.f90
+17:17:16:   inflating: sbr/lhcd2017.f
+17:17:16:   inflating: sbr/saveprofiles.f
+17:17:16:   inflating: sbr/typdsp_ext.f
+17:17:16:   inflating: sbr/typdsp_time.f
+17:17:16:   inflating: race_model.json
+17:17:16: run_cmd: start wsl  --cd /home/nteplova/ASTRA-6 ./run10.sh a5 T-15_R6.exp T15.equ
+17:20:50: finish
+17:20:50: pack data
+17:20:50: run_cmd: wsl --cd /home/nteplova/ASTRA-6/a5 zip -r race_data.zip dat
+17:20:51: updating: dat/ (stored 0%)
+17:20:51: updating: dat/XData/ (stored 0%)
+17:20:51:   adding: dat/XData/0.1759000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1806000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1789000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1818000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1773000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1767000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1782000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1812000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1779000.dat (deflated 65%)
+17:20:51:   adding: dat/XData/0.1757000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1810000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1801000.dat (deflated 63%)
+17:20:51:   adding: dat/XData/0.1755000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1815000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1786000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1754000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1793000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1762000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1814000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1777000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1768000.dat (deflated 65%)
+17:20:51:   adding: dat/XData/0.1760000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1780000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1811000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1770000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1751000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1775000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1781000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1763000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1778000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1783000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1766000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1803000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1805000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1769000.dat (deflated 65%)
+17:20:51:   adding: dat/XData/0.1824000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1752000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1794000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1808000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1813000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1825000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1795000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1822000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1799000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1776000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1807000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1787000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1804000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1797000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1788000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1774000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1764000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1823000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1819000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1765000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1809000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1792000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1802000.dat (deflated 63%)
+17:20:51:   adding: dat/XData/0.1816000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1758000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1798000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1791000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1750000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1817000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1784000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1796000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1772000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1761000.dat (deflated 65%)
+17:20:51:   adding: dat/XData/0.1790000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1800000.dat (deflated 65%)
+17:20:51:   adding: dat/XData/0.1771000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1756000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1821000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1820000.dat (deflated 62%)
+17:20:51:   adding: dat/XData/0.1753000.dat (deflated 66%)
+17:20:51:   adding: dat/XData/0.1785000.dat (deflated 66%)
+17:20:51:   adding: dat/time_series.dat (deflated 78%)
+17:20:51: run_cmd: wsl --cd /home/nteplova/ASTRA-6/a5 zip -r race_data.zip lhcd
+17:20:51: updating: lhcd/diffusion/ (stored 0%)
+17:20:51: updating: lhcd/maxwell/ (stored 0%)
+17:20:51: updating: lhcd/maxwell_fij0/ (stored 0%)
+17:20:51: updating: lhcd/distribution/ (stored 0%)
+17:20:51: updating: lhcd/traj/ (stored 0%)
+17:20:51: updating: lhcd/traj/pos/ (stored 0%)
+17:20:51: updating: lhcd/traj/neg/ (stored 0%)
+17:20:51: updating: lhcd/rt-result/ (stored 0%)
+17:20:51: updating: lhcd/out/ (stored 0%)
+17:20:51: updating: lhcd/plasma/ (stored 0%)
+17:20:51: updating: lhcd/ (stored 0%)
+17:20:51: updating: lhcd/ray_tracing.dat (deflated 64%)
+17:20:51: updating: lhcd/spectrum.dat (deflated 71%)
+17:20:51:   adding: lhcd/out/5.dat (deflated 82%)
+17:20:51:   adding: lhcd/out/absorp.dat (deflated 75%)
+17:20:51:   adding: lhcd/out/rest.dat (deflated 84%)
+17:20:51:   adding: lhcd/out/1.dat (deflated 85%)
+17:20:51:   adding: lhcd/out/npar_crit.dat (deflated 77%)
+17:20:51:   adding: lhcd/out/2.dat (deflated 86%)
+17:20:51:   adding: lhcd/out/info_traj.dat (deflated 95%)
+17:20:51:   adding: lhcd/out/lcms.dat (deflated 78%)
+17:20:51:   adding: lhcd/out/4.dat (deflated 86%)
+17:20:51:   adding: lhcd/out/3.dat (deflated 82%)
+17:20:51:   adding: lhcd/rt-result/0.1806000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1818000.dat (deflated 76%)
+17:20:51:   adding: lhcd/rt-result/0.1812000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1810000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1801000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1815000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1814000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1811000.dat (deflated 76%)
+17:20:51:   adding: lhcd/rt-result/0.1803000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1805000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1824000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1808000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1813000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1822000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1807000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1804000.dat (deflated 76%)
+17:20:51:   adding: lhcd/rt-result/0.1823000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1819000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1809000.dat (deflated 76%)
+17:20:51:   adding: lhcd/rt-result/0.1802000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1816000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1817000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1800000.dat (deflated 76%)
+17:20:51:   adding: lhcd/rt-result/0.1821000.dat (deflated 77%)
+17:20:51:   adding: lhcd/rt-result/0.1820000.dat (deflated 77%)
+17:20:51:   adding: lhcd/diffusion/0.1806000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1818000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1812000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1810000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1801000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1815000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1814000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1811000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1803000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1805000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1824000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1808000.dat (deflated 85%)
+17:20:51:   adding: lhcd/diffusion/0.1813000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1822000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1807000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1804000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1823000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1819000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1809000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1802000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1816000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1817000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1800000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1821000.dat (deflated 85%)
+17:20:52:   adding: lhcd/diffusion/0.1820000.dat (deflated 85%)
+17:20:52:   adding: lhcd/dc_result.dat (deflated 72%)
+17:20:52:   adding: lhcd/maxwell/0.1806000.dat (deflated 74%)
+17:20:52:   adding: lhcd/maxwell/0.1818000.dat (deflated 74%)
+17:20:52:   adding: lhcd/maxwell/0.1812000.dat (deflated 74%)
+17:20:52:   adding: lhcd/maxwell/0.1810000.dat (deflated 74%)
+17:20:52:   adding: lhcd/maxwell/0.1801000.dat (deflated 74%)
+17:20:52:   adding: lhcd/maxwell/0.1815000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1814000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1811000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1803000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1805000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1824000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1808000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1813000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1822000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1807000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1804000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1823000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1819000.dat (deflated 74%)
+17:20:53:   adding: lhcd/maxwell/0.1809000.dat (deflated 74%)
+17:20:54:   adding: lhcd/maxwell/0.1802000.dat (deflated 74%)
+17:20:54:   adding: lhcd/maxwell/0.1816000.dat (deflated 74%)
+17:20:54:   adding: lhcd/maxwell/0.1817000.dat (deflated 74%)
+17:20:54:   adding: lhcd/maxwell/0.1800000.dat (deflated 74%)
+17:20:54:   adding: lhcd/maxwell/0.1821000.dat (deflated 74%)
+17:20:54:   adding: lhcd/maxwell/0.1820000.dat (deflated 74%)
+17:20:54:   adding: lhcd/traj/0.1806000.dat (deflated 83%)
+17:20:54:   adding: lhcd/traj/0.1818000.dat (deflated 83%)
+17:20:55:   adding: lhcd/traj/0.1812000.dat (deflated 83%)
+17:20:55:   adding: lhcd/traj/0.1810000.dat (deflated 83%)
+17:20:55:   adding: lhcd/traj/0.1801000.dat (deflated 83%)
+17:20:55:   adding: lhcd/traj/0.1815000.dat (deflated 83%)
+17:20:55:   adding: lhcd/traj/0.1814000.dat (deflated 83%)
+17:20:55:   adding: lhcd/traj/0.1811000.dat (deflated 83%)
+17:20:56:   adding: lhcd/traj/0.1803000.dat (deflated 83%)
+17:20:56:   adding: lhcd/traj/0.1805000.dat (deflated 83%)
+17:20:56:   adding: lhcd/traj/0.1824000.dat (deflated 83%)
+17:20:56:   adding: lhcd/traj/0.1808000.dat (deflated 83%)
+17:20:56:   adding: lhcd/traj/0.1813000.dat (deflated 83%)
+17:20:57:   adding: lhcd/traj/0.1822000.dat (deflated 83%)
+17:20:57:   adding: lhcd/traj/0.1807000.dat (deflated 83%)
+17:20:57:   adding: lhcd/traj/0.1804000.dat (deflated 83%)
+17:20:57:   adding: lhcd/traj/0.1823000.dat (deflated 84%)
+17:20:57:   adding: lhcd/traj/0.1819000.dat (deflated 83%)
+17:20:58:   adding: lhcd/traj/0.1809000.dat (deflated 83%)
+17:20:58:   adding: lhcd/traj/0.1802000.dat (deflated 83%)
+17:20:58:   adding: lhcd/traj/0.1816000.dat (deflated 83%)
+17:20:58:   adding: lhcd/traj/0.1817000.dat (deflated 83%)
+17:20:58:   adding: lhcd/traj/0.1800000.dat (deflated 83%)
+17:20:59:   adding: lhcd/traj/0.1821000.dat (deflated 83%)
+17:20:59:   adding: lhcd/traj/0.1820000.dat (deflated 83%)
+17:20:59:   adding: lhcd/distribution/0.1806000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1818000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1812000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1810000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1801000.dat (deflated 67%)
+17:20:59:   adding: lhcd/distribution/0.1815000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1814000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1811000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1803000.dat (deflated 67%)
+17:20:59:   adding: lhcd/distribution/0.1805000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1824000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1808000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1813000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1822000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1807000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1804000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1823000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1819000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1809000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1802000.dat (deflated 67%)
+17:20:59:   adding: lhcd/distribution/0.1816000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1817000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1800000.dat (deflated 67%)
+17:20:59:   adding: lhcd/distribution/0.1821000.dat (deflated 68%)
+17:20:59:   adding: lhcd/distribution/0.1820000.dat (deflated 68%)
+17:21:00: the end

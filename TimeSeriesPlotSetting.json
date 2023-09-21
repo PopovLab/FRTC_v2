@@ -3,10 +3,12 @@
   "title": "Time Series data",
   "plots": {
     "ax1": [
-      "L"
+      "QLh",
+      "IPL",
+      "ICD"
     ],
     "ax2": [
-      "Iohm"
+      "QLh"
     ],
     "ax3": [
       "Vexp",

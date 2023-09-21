@@ -1,8 +1,8 @@
 {
-  "name": "g0f2_scatter",
+  "name": "T15 model",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
@@ -40,7 +40,7 @@
       },
       "dni2": {
         "title": "dni2",
-        "value": 0.03,
+        "value": 0.0,
         "type": "float",
         "description": "Ni2/Ni1, relative density of ions 2"
       },
@@ -58,7 +58,7 @@
       },
       "dni3": {
         "title": "dni3",
-        "value": 1.0,
+        "value": 0.0,
         "type": "float",
         "description": "Ni3/Ni1, relative density of ions 3"
       }
@@ -171,43 +171,43 @@
       },
       "ni1": {
         "title": "ni1",
-        "value": 20,
+        "value": 25,
         "type": "int",
         "description": "grid number in the left part of Vz plato"
       },
       "ni2": {
         "title": "ni2",
-        "value": 20,
+        "value": 25,
         "type": "int",
         "description": "grid number in the right part of Vz plato"
       },
       "niterat": {
         "title": "niterat",
-        "value": 199,
+        "value": 99,
         "type": "int",
         "description": "maximal number of iterations"
       },
       "nmaxm(1)": {
         "title": "nmaxm(1)",
-        "value": 500,
+        "value": 20,
         "type": "int",
         "description": "permitted reflections at 0 iteration"
       },
       "nmaxm(2)": {
         "title": "nmaxm(2)",
-        "value": 50,
+        "value": 20,
         "type": "int",
         "description": "permitted reflections at 2 iteration"
       },
       "nmaxm(3)": {
         "title": "nmaxm(3)",
-        "value": 50,
+        "value": 20,
         "type": "int",
         "description": "permitted reflections at 3 iteration"
       },
       "nmaxm(4)": {
         "title": "nmaxm(4)",
-        "value": 50,
+        "value": 20,
         "type": "int",
         "description": "permitted reflections at 4 iteration"
       },
@@ -277,21 +277,21 @@
     "grill parameters": {
       "Zplus": {
         "title": "Zplus",
-        "value": 2.25,
+        "value": 20.0,
         "type": "float",
         "unit": "cm",
         "description": "upper grill corner in centimeters"
       },
       "Zminus": {
         "title": "Zminus",
-        "value": -2.25,
+        "value": -20.0,
         "type": "float",
         "unit": "cm",
         "description": "lower grill corner in centimeters"
       },
       "ntet": {
         "title": "ntet",
-        "value": 3,
+        "value": 21,
         "type": "int",
         "description": "theta grid number"
       },
@@ -303,8 +303,29 @@
       }
     },
     "spectrum": {
-      "spectrum_type": "scatter_spectrum",
-      "source": "D:/PopovLab/Spectra/gr_spektr.dat"
+      "spectrum_type": "gaussian",
+      "options": {
+        "x_min": -3.0,
+        "x_max": -0.8,
+        "step": 0.001,
+        "bias": -1.9,
+        "sigma": 0.2
+      },
+      "parameters": {
+        "angle": {
+          "title": "Angle",
+          "value": 0.0,
+          "type": "float",
+          "unit": "deg",
+          "description": "Rotation on spectrum"
+        },
+        "spline": {
+          "title": "Spline",
+          "value": true,
+          "type": "logical",
+          "description": "Apply spline approximation"
+        }
+      }
     }
   }
 }
