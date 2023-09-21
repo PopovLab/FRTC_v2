@@ -6,5 +6,5 @@ doc/html/
 *.dir
 *.bak
 *.zip
-kernel.log
-RadialPlotSetting.json
+*.log
+

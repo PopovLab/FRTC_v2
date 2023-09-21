@@ -10,6 +10,7 @@ cc   outpa(i)  = LH power density deposited into alphas, MW/m^3
 cc   outda(i)  = (Na/Ne) relative density of alpha-particles
 cc******************************************************************
       use approximation
+      use utils
       use plasma
       use rt_parameters
       use spectrum1D      
@@ -25,8 +26,8 @@ cc******************************************************************
       include 'for/status.inc'
       real*8 outpe(NRD)
       real*8,dimension(:),allocatable:: outpep,outpem
-      type(spectrum) spectr
-
+      type(Spectrum) spectr
+      type(Timer) my_timer
 cc*********************************************************************
 cc    Co-ordinates used in ray-tracing:
 cc         (x-x0)/rm=r*cos(teta)-delta-gamma*sin^2(teta) !sav2008 -gamma
@@ -38,6 +39,7 @@ cc    r(rho_ASTRA),delta(r),gamma(r),ell(r) - dimensionless functions
 cc    rho_ASTRA=sqrt(Phi_tor/GP/BTOR)
 cc    Interval for r:  0.<= r <=1.
 cc*********************************************************************
+        call my_timer%start('lhcd/lhcd_time.dat', time)
       print *, 'start start'
       tcur=time
       outpe=zero
@@ -53,6 +55,8 @@ cc*********************************************************************
       call init_plasma(NA1,ABC,BTOR,RTOR,UPDWN,GP2,
      & AMETR,RHO,SHIF,ELON,TRIA,MU,NE,TE,TI,ZEF,UPL)
 
+      call write_plasma(time)
+      
       full_spectrum = read_spectrum('lhcd/spectrum.dat')
       full_spectrum%input_power = p_in
       pos_spectr = full_spectrum%get_positive_part()
@@ -131,4 +135,8 @@ cc*********************************************************************
       end do
 
       deallocate(outpep,outpem)
+      call my_timer%stop_and_save
+      print *, 'lhcd elapsed time', my_timer%elapsed_time
+      !pause
+
       end

@@ -75,10 +75,11 @@ C	YQ=(1.+YQ*(1.+YD**2*(2.-1.2*YD)))/(MU(NA)*(1.+YQ))
 	 write(7,104)STRI
 	 if(NCH.eq.1)	goto	400
 
-C Writing radial data
-	write(7,*)
-	write(7,*) 'Writing radial data'
-	if (MOD10.le.5)			then
+!C Writing radial data
+	  write(7,*)
+	  write(7,*) 'Writing radial data'
+      print *, 'MOD10', MOD10
+	 if (MOD10.le.5)			then
 	    JBE=1
 	    JEND=16
  3	    JEN=MIN0(NTOUT,JEND)
@@ -95,7 +96,7 @@ C Writing radial data
 	    JEND=16
  1	    JEN=MIN0(NROUT,JEND)
 
- 		 write(7,'(99A20))') 'a',(NAMER(J),J=1,NROUT)
+ 		 write(7,'(99A22))') 'a',(NAMER(J),J=1,NROUT)
 
 		do  j=1, NP1 
 			SELECT CASE (MODEX) 
