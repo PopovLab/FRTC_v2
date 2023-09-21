@@ -3,6 +3,41 @@ module writer_module
     implicit none
     
 contains
+
+subroutine binary_write_array(v, a, time, array_name)
+    !! сохраняет массивы расределения и скорости
+    implicit none
+    real(wp), intent(in) :: v(:,:)    
+    real(wp), intent(in) :: a(:,:,:)
+    real(wp), intent(in) :: time
+    character(len=*), intent(in) :: array_name
+    real(wp), allocatable :: gv(:), ga(:)
+    integer i, N, nshape(3)
+    character(120) fname
+    integer, parameter :: iu = 21
+
+    if (MOD(INT(time*100000), 10) /= 0) then 
+        return
+    end if
+    
+    nshape=shape(a) 
+    print *, 'write arr:', array_name, nshape
+    N = nshape(2)
+    print *, N
+    write(fname,'("lhcd/", A,"/", f9.7,".bin")') array_name, time
+    print *, fname
+
+    open(iu, file=fname ,status='new',action='write',access='stream',form='unformatted')
+        write (iu),  nshape(1), nshape(2)
+        write (iu), v
+        write (iu), a
+        !ga = glue_arrays(a(:,i,1), a(:,i,2))
+            !write (iu, '(2012(ES22.14))') ga(:)
+
+    close(iu)      
+
+end subroutine
+
 subroutine write_v_array(v, a, time, array_name)
     !! сохраняет массивы расределения и скорости
     implicit none
