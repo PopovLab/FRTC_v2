@@ -2,7 +2,7 @@
   "name": "g0f2_scatter",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "value": "Comments about ....\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
@@ -257,7 +257,7 @@
       },
       "inew": {
         "title": "inew",
-        "value": 1,
+        "value": 0,
         "type": "int",
         "description": "inew=0 for usual tokamak&Ntor_grill; 1 or 2 for g' in ST&Npol_grill"
       },
@@ -304,7 +304,7 @@
     },
     "spectrum": {
       "spectrum_type": "scatter_spectrum",
-      "source": "D:/PopovLab/Spectra/gr_spektr.dat"
+      "source": "C:/Users/tmp8/Documents/Grigoriy/gr_spektr.dat"
     }
   }
 }

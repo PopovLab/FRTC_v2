@@ -275,7 +275,6 @@ contains
                 pm0(i) = spectr%data(i)%power
             end do
 
-         !   print *,'ispl=', ispl
             call splne(ynzm0,pm0,ispl,yn2z)
             innz=100*ispl
             dxx=(ynzm0(ispl)-ynzm0(1))/innz
