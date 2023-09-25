@@ -260,10 +260,11 @@ contains
 
     subroutine find_volums_and_surfaces
         use constants
-        use rt_parameters
+        use rt_parameters, only: nr
         implicit none
         integer j
         real(wp) hr, rxx, vk0, sk0
+        real(wp), parameter :: eps=1.d-6
         !--------------------------------------------------------
         ! find volums and surfaces
         !--------------------------------------------------------
@@ -272,8 +273,8 @@ contains
         sk0=hr*rm**2
         do j=1,nr
             rxx=hr*dble(j)
-            vk(j)=vk0*gaussint(obeom,zero,pi2,rxx,eps)
-            sk(j)=sk0*gaussint(ploshad,zero,pi2,rxx,eps)
+            vk(j)=vk0*gaussint(obeom, zero, pi2, rxx, eps)
+            sk(j)=sk0*gaussint(ploshad, zero, pi2, rxx, eps)
         end do        
     end subroutine
 
