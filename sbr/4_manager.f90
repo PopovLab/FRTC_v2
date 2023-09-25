@@ -8,7 +8,7 @@ contains
     subroutine manager(iterat,iw0, ntet, spectr)
         use constants            
         use plasma
-        use rt_parameters, only : nr, ipri, iw, nmaxm, pabs0            
+        use rt_parameters, only : nr, ipri, iw, nmaxm, pabs0, eps, eps_const          
         !use spectrum1D, only: ynzm, pm
         use trajectory
         use spectrum_mod
@@ -159,7 +159,13 @@ contains
                 !-------------------------------------
                 ! call ray tracing
                 !-------------------------------------
+                !eps = eps_const
                 call traj(xm,tet,rstart,nmax,nb1,nb2,itet,inz, pabs) !sav2009
+                if (eps /= eps_const) then
+                    print *, "---- traj end eps= ", eps, eps_const
+                    !pause
+                end if
+                eps = eps_const
                 nbad1 = nbad1+nb1
                 nbad2 = nbad2+nb2
                 nrefj(itr) = nrefj(itr)+nmax
@@ -292,8 +298,9 @@ contains
                ! xm = point%Npol*dsqrt(g22)    !correct 2d  pol
 !!              xm=yn*dsqrt(g22)         !given yn=(N*jpol) at Nfi=0
             else !usual tokamak and toroidal grill direction
-                xm = zero               !N2=0
-                yn3 = point%Ntor*dsqrt(g33)/co  !if given Npar at Nteta=0
+                xm = point%Npol*dsqrt(g22)/si                
+                yn3 = point%Ntor*dsqrt(g33)/co    
+
                 !yn3 = yn*dsqrt(g33)/co  !if given Npar at Nteta=0
 !!             ! yn3=yn*dsqrt(g33)       !if given Nfi at Nteta=0
                ! yn3 = point%Ntor*dsqrt(g33)  !correct 2d tor  
