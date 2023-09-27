@@ -39,8 +39,9 @@ cc    r(rho_ASTRA),delta(r),gamma(r),ell(r) - dimensionless functions
 cc    rho_ASTRA=sqrt(Phi_tor/GP/BTOR)
 cc    Interval for r:  0.<= r <=1.
 cc*********************************************************************
-        call my_timer%start('lhcd/lhcd_time.dat', time)
-      print *, 'start start'
+      call my_timer%start('lhcd/lhcd_time.dat', time)
+      print *, 'start lhcd2017 time=', time
+      print *, 'NA1 NB1', NA1, NB1
       tcur=time
       outpe=zero
       p_in=dble(QLH)    ! input LH power, MW
@@ -51,7 +52,6 @@ cc*********************************************************************
       end if
 
       call read_parameters('lhcd/ray_tracing.dat')
-
       call init_plasma(NA1,ABC,BTOR,RTOR,UPDWN,GP2,
      & AMETR,RHO,SHIF,ELON,TRIA,MU,NE,TE,TI,ZEF,UPL)
 
