@@ -3,7 +3,7 @@ module lhcd_module
     use kind_module
     implicit none
     
-    real(wp), dimension(:), allocatable:: vvj, vdfj
+
 
     integer, parameter :: kpt1=40, kpt3=10
    ! integer, parameter :: kpt1=100, kpt3=100
@@ -29,14 +29,27 @@ contains
         use math_module
         use driver_module, only : lfree
         use driven_current_module, only : zv1, zv2
-        implicit real*8 (a-h,o-z)
+        implicit none !real*8 (a-h,o-z)
         type(Spectrum) spectr
         real*8 outpe,pe_out 
         dimension outpe(*)
-        dimension galfa(50,100),vpmin(100),vcva(100), &
+        real(wp) :: galfa(50,100),vpmin(100),vcva(100), &
             pd2(100),pd2a(100),pd2b(100),pdprev1(100),pdprev2(100), &
             source(100),sour(100), &
             rxx(102),pwe(102),wrk(102)
+        real(wp) :: dn1, dn2, ddens, tdens, tt, cn2
+        real(wp) :: e1, e2, e3
+        real(wp) :: v, v1, v2, vmax, vt, vto
+        real(wp) :: anb, anb0, aratio
+        real(wp) :: dcoll, perpn, dalf, vel, tatai, xnpar, tok, cur
+        real(wp) :: q_rest, psum1, psum2, pchg, pchg1, pchg2
+        real(wp) :: dpw1, dpw2, cppl
+        real(wp) :: cppc, cppa, cppf, ol, oc, oa, of, oi
+        real(wp) :: q_abs, q_cond
+        real(wp) :: sssour, dland, avedens, P_turns, zff
+        real(wp) :: cnyfoc, dconst, ddout, fout, dfout
+        real(wp) :: wpq, whe, u, u1, tmp, cn1, dvperp
+        real(wp) :: fuspow, o_da, r, hr, pn, fnr, fnrr
         !dimension vmid(100),vz1(100),vz2(100),ibeg(100),iend(100)
         !common /a0a4/ plost,pnab
         !common /bcef/ ynz,ynpopq
@@ -65,6 +78,8 @@ contains
         integer :: nrr, i, j, k  
         integer :: klo,khi,ierr
         integer :: jrad, iww, iw0, izz
+
+        real(wp), dimension(:), allocatable:: vvj, vdfj
 
         plaun = spectr%input_power
 
@@ -97,11 +112,11 @@ contains
         ipt1=kpt1+1
         ipt2=ni1+ni2
         ipt=ipt1+ni1+ni2+kpt3
-       ! if(ipt.gt.101) then
-       !     write(*,*)'ipt >101'
-       !     pause'stop program'
-       !     stop
-       ! end if
+        if(ipt.gt.101) then
+            write(*,*)'ipt >101'
+            pause'stop program'
+            stop
+        end if
         nvpt=ipt
 
         do j=1,nr                  ! begin 'rho' cycle
@@ -488,6 +503,8 @@ contains
         double precision vrj(*),v1,v2,v12,vmax,cdel
         kpt1=ipt1-1
         kpt2=ni1+ni2+1
+       ! print *, kpt1, kpt2, kpt3
+       ! pause
         do k=1,kpt1  !0<=v<v1
             vrj(k)=dble(k-1)*v1/dble(kpt1)
         end do
@@ -521,7 +538,9 @@ contains
         integer :: klo,khi,ierr
         real(wp) :: r, hr, vt, vto, vmax
         real(wp) :: v1, v2, vp1, vp2
-
+        real(wp), dimension(i0):: vvj, vdfj
+        print *, 'recalculate_f_for_a_new_mesh'
+        !pause
         hr = 1.d0/dble(nr+1)
         k=(3-ispectr)/2
         do j=1,nr
