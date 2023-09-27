@@ -1,8 +1,8 @@
 {
-  "name": "FT-2_new",
+  "name": "FT2old",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n",
+      "value": "Comments about ....\n\n",
       "title": "Comments",
       "type": "text"
     },
@@ -34,7 +34,7 @@
       },
       "zi2": {
         "title": "zi2",
-        "value": 8.0,
+        "value": 0.0,
         "type": "float",
         "description": "charge of ions 2"
       },
@@ -239,7 +239,7 @@
       },
       "ismth": {
         "title": "ismth",
-        "value": 0,
+        "value": 1,
         "type": "int",
         "description": "if=0, no smoothing in Ne(rho),Te(rho),Ti(rho)"
       },
@@ -277,34 +277,34 @@
     "grill parameters": {
       "Zplus": {
         "title": "Zplus",
-        "value": 8.0,
+        "value": 11,
         "type": "float",
         "unit": "cm",
         "description": "upper grill corner in centimeters"
       },
       "Zminus": {
         "title": "Zminus",
-        "value": -8.0,
+        "value": -11,
         "type": "float",
         "unit": "cm",
         "description": "lower grill corner in centimeters"
       },
       "ntet": {
         "title": "ntet",
-        "value": 10,
+        "value": 21,
         "type": "int",
         "description": "theta grid number"
       },
       "nnz": {
         "title": "nnz",
-        "value": 50,
+        "value": 51,
         "type": "int",
         "description": "iN_phi grid number"
       }
     },
     "spectrum": {
       "spectrum_type": "spectrum_1D",
-      "source": "C:/Users/user1/Desktop/FT-2/FT2_sp_old2017.txt",
+      "source": "C:/Users/user1/Desktop/FT2 correct/FT2_sp_old2017.txt",
       "parameters": {
         "angle": {
           "title": "Angle",
