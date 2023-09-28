@@ -5,7 +5,7 @@ module spline_module
     
 contains
     subroutine splne(x,y,n,y2)
-        integer, parameter :: nn=2001
+        integer, parameter :: nn=3001
         real(wp), parameter :: zero=0d0
         integer n
         real(wp) x(n),y(n),y2(n),u(nn)
