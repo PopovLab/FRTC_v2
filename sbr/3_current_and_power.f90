@@ -73,7 +73,7 @@ subroutine dfind(j,i,v,powpr,pil,pic,pia,df,decv,refr,vlf,vrt,ifast)
      !common /vvv3/ pdfast(100)
      !common /alph/ dqi0(50,100)
      !common/findsigma/dncount(101,100)
-     
+    real(wp),parameter :: absorption_tiny = 1.d-20
 
     if(v.gt.cltn) return
     if(pil.gt.zero) then
@@ -100,7 +100,7 @@ subroutine dfind(j,i,v,powpr,pil,pic,pia,df,decv,refr,vlf,vrt,ifast)
     if(pil.eq.zero) go to 1 !no Landau absorption
     if(powlandau.gt.pchm) then !strong absorption
         ppv1=ppv1+pchgl
-        if(dabs(df).gt.tiny) then
+        if(dabs(df).gt.absorption_tiny) then
             dd=dabs(-pchgl/vk(j)/(df*1.d10))
             dncount(i,j)=dncount(i,j)+1.d0
         else
