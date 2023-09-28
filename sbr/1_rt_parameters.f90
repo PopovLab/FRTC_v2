@@ -40,7 +40,7 @@ module rt_parameters
     !! hmin1, rel.(hr) min. step in the Fast comp. mode, <1.d0
     real(wp) ::  rrange
     !! rrange,   rel.(hr) size of a 'turning' point region, <1.d0
-    real(wp) ::  eps
+    real(wp) ::  eps, eps_const
     !! eps,      accuracy
     real(wp) ::  hdrob
     !! hdrob,    h4 correction,
@@ -153,6 +153,7 @@ module rt_parameters
                read(iunit,*) hmin1
                read(iunit,*) rrange
                read(iunit,*) eps
+               eps_const = eps
                read(iunit,*) hdrob
                read(iunit,*) cleft
                read(iunit,*) cright
