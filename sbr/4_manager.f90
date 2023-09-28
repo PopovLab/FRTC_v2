@@ -281,8 +281,8 @@ contains
             if (inew.gt.0) then !g' in ST and poloidal grill direction
                 !yn3 = zero                 !Nfi=0
                 !xm = yn*dsqrt(g22)/si      !given Npar at Nfi=0
-                yn3 = point%Npol**dsqrt(g33)/co     
-                xm = point%Ntor*dsqrt(g22)/si
+                yn3 = point%Ntor*dsqrt(g33)/co 
+                xm = point%Npol*dsqrt(g22)/si
 !!              xm=yn*dsqrt(g22)         !given yn=(N*jpol) at Nfi=0
             else !usual tokamak and toroidal grill direction
                 !xm = zero               !N2=0
