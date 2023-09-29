@@ -79,9 +79,9 @@ CCD2 = IINT(CULHB);
 !----------------- Radial output -----------------
 
 J\CU\-1;       Upl\UPL;       Johm\CUOHM\8;   E\UPL/RTOR/GP2;
-Poh\POH\-2;    Te\TE\\TEX;    CC\CC\-3;       Q\1./MU;
-Jlh\CULH\-1;   Ni\NI;         Jlh\CULH\8;     En\CAR24;
-Plh\PELH\-2;   Ne\NE\\NE;    sig\CAR32\-3;   Chr\CAR31; 
+Poh\POH\-2;    Te\TE;         CC\CC\-3;       Q\1./MU;
+Jlh\CULH\-1;   Zef\ZEF;         Jlh\CULH\8;     En\CAR24;
+Plh\PELH\-2;   Ne\NE;         sig\CAR32\-3;   Chr\CAR31; 
 
 !----------------- Time output -----------------
 
@@ -89,6 +89,7 @@ Ilh_ILHB_-10;       Qlh_QLH_-5;
 U_UPLB_-2;          Iohm_IOHMB_-10;
 Ux_ZRD2_-2;         PLH_CCD1;
 Ipl_IPL_-10;        E_UPL/RTOR/GP2_-2;
+
 
 
 
