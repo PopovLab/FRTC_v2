@@ -2,7 +2,7 @@
   "name": "T15 model",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n",
+      "value": "Comments about ....",
       "title": "Comments",
       "type": "text"
     },
