@@ -71,7 +71,8 @@ contains
         lfree=1
 
         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        hr = 1.d0/dble(nr+1)
+        hr = 1.d0/dble(nr+1) !03/10/2023
+       ! hr = 1.d0/dble(nr)
         iw0=iw
         nrr=nr+2
         rxx(1)=zero
@@ -104,7 +105,7 @@ contains
         nvpt=ipt
 
         do j=1,nr                  ! begin 'rho' cycle
-            r=hr*dble(j)
+            r=hr*dble(j+1)
             !!!!sav2008       pn=fn(r)
             !!       pn=fn1(r,fnr)
             !!       pn=fn2(r,fnr,fnrr) !sav2008
@@ -170,7 +171,7 @@ contains
         allocate(vvj(i0),vdfj(i0))
         k=(3-ispectr)/2
         do j=1,nr
-            r=hr*dble(j)
+            r=hr*dble(j+1)
             vt=fvt(r)
             vto=vt/vt0
             do i=1,i0
@@ -200,7 +201,7 @@ contains
             anb0=anb
             anb=zero
             do j=1,nr
-                r=hr*dble(j)
+                r=hr*dble(j+1)
                 if(r.le.dra) then
                     tt=fti(zero)**one_third
                 else
@@ -215,7 +216,7 @@ contains
             rsou(1)=zero
             sou(1)=aratio*sour(1)
             do j=1,nr
-                r=hr*dble(j)
+                r=hr*dble(j+1)
                 rsou(j+1)=r
                 sou(j+1)=aratio*sour(j)
                 if(j.eq.nr) sssour=source(j)
@@ -381,7 +382,7 @@ contains
         !
         k=(3-ispectr)/2
         do j=1,nr
-            r=hr*dble(j)
+            r=hr*dble(j+1)
             vt=fvt(r)
             vto=vt/vt0
             vmax=cltn/vto
@@ -524,7 +525,7 @@ contains
         hr = 1.d0/dble(nr+1)
         k=(3-ispectr)/2
         do j=1,nr
-            r=hr*dble(j)
+            r=hr*dble(j+1)
             vt=fvt(r)
             vto=vt/vt0
             if(iterat.gt.0) then
