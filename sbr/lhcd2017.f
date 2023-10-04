@@ -59,9 +59,13 @@ cc*********************************************************************
       
       full_spectrum = read_spectrum('lhcd/spectrum.dat')
       full_spectrum%input_power = p_in
+
       pos_spectr = full_spectrum%get_positive_part()
       neg_spectr = full_spectrum%get_negative_part()
-
+      
+      !full_spectrum%power_ratio = full_spectrum%power_ratio / 2
+      call full_spectrum%calc_max_power
+      call full_spectrum%write('full_spectrum')
 !!!!!!!!!!!!! starting ray-tracing !!!!!!!!!!!!!!!!!!!!!
       allocate(outpep(ngrid),outpem(ngrid))
 
@@ -84,6 +88,7 @@ cc*********************************************************************
                   print *, '2D spectrum'
                   stop                  
             end select
+            call spectr%write('spectrum_pos')
             call ourlhcd2017(spectr, outpep,pe_p)
       else
             dij(:,:,1)=zero
@@ -116,6 +121,7 @@ cc*********************************************************************
                   print *, '2D spectrum'
                   stop
             end select            
+            call spectr%write('spectrum_neg')            
             call ourlhcd2017(spectr, outpem,pe_m)              
        else
             dij(:,:,2)=zero

@@ -36,6 +36,7 @@ module spectrum_mod
         procedure :: get_positive_part => get_positive_part_method
         procedure :: get_negative_part => get_negative_part_method
         procedure :: calc_max_power => calc_max_power_method
+        procedure :: write => write_spectrum
     end type Spectrum
 
     interface Spectrum
@@ -179,7 +180,7 @@ contains
         spectr%size = n
         spectr%input_power = 0
         spectr%sum_power = 0
-        spectr%direction = 0
+        spectr%direction = 1
         spectr%power_ratio = 1
         sum_power = 0
         allocate(spectr%data(n))        
@@ -197,6 +198,23 @@ contains
         close(20)
 
     end function read_spectrum         
+
+    subroutine write_spectrum(this, spectrum_name)
+        !! write spectrum to file
+        implicit none
+        class(Spectrum), intent(inout) :: this
+        character(len=*), intent(in) :: spectrum_name
+        character(len=256)  :: fname
+        integer i, n
+        integer, parameter :: iu = 21
+        write(fname,'("lhcd/", A, ".dat")') spectrum_name
+        print *,'write to:',  fname
+
+        open(iu, file=fname)
+        do i=1, this%size 
+            write (iu,*) this%data(i)%Ntor, this%data(i)%Npol, this%data(i)%power
+        enddo
+    end subroutine write_spectrum
 
     subroutine divide_spectrum(spectr, pos_spectr, neg_spectr)
         !! деление спектра на две части
