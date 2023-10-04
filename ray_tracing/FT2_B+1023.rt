@@ -1,15 +1,15 @@
 {
-  "name": "g0f1",
+  "name": "FT2_B+1023",
   "setting": {
     "Comments": {
-      "value": "Comments about ....\n\n\n\n\n\n\n",
+      "value": "fase 34 \n\n\n\n",
       "title": "Comments",
       "type": "text"
     },
     "Physical parameters": {
       "Freq": {
         "title": "Frequency",
-        "value": 1.0,
+        "value": 0.92,
         "unit": "GHz",
         "type": "float",
         "description": "RF frequency, GHz"
@@ -28,19 +28,19 @@
       },
       "xmi2": {
         "title": "xmi2",
-        "value": 16.0,
+        "value": 12.0,
         "type": "float",
         "description": "Mi2/Mp,  relative mass of ions 2"
       },
       "zi2": {
         "title": "zi2",
-        "value": 0.0,
+        "value": 6.0,
         "type": "float",
         "description": "charge of ions 2"
       },
       "dni2": {
         "title": "dni2",
-        "value": 0.03,
+        "value": 0.05,
         "type": "float",
         "description": "Ni2/Ni1, relative density of ions 2"
       },
@@ -58,7 +58,7 @@
       },
       "dni3": {
         "title": "dni3",
-        "value": 1.0,
+        "value": 0.2,
         "type": "float",
         "description": "Ni3/Ni1, relative density of ions 3"
       }
@@ -239,7 +239,7 @@
       },
       "ismth": {
         "title": "ismth",
-        "value": 1,
+        "value": 0,
         "type": "int",
         "description": "if=0, no smoothing in Ne(rho),Te(rho),Ti(rho)"
       },
@@ -277,21 +277,21 @@
     "grill parameters": {
       "Zplus": {
         "title": "Zplus",
-        "value": 11,
+        "value": 11.0,
         "type": "float",
         "unit": "cm",
         "description": "upper grill corner in centimeters"
       },
       "Zminus": {
         "title": "Zminus",
-        "value": -11,
+        "value": -11.0,
         "type": "float",
         "unit": "cm",
         "description": "lower grill corner in centimeters"
       },
       "ntet": {
         "title": "ntet",
-        "value": 21,
+        "value": 11,
         "type": "int",
         "description": "theta grid number"
       },
@@ -303,14 +303,8 @@
       }
     },
     "spectrum": {
-      "spectrum_type": "gaussian",
-      "options": {
-        "x_min": -40.0,
-        "x_max": 40.0,
-        "step": 0.25,
-        "bias": 0.0,
-        "sigma": 2.5
-      },
+      "spectrum_type": "spectrum_1D",
+      "source": "D:/Lab/FRTC_v2/specters/spcpz2.dat",
       "parameters": {
         "angle": {
           "title": "Angle",
@@ -323,7 +317,7 @@
           "title": "Spline",
           "value": true,
           "type": "logical",
-          "description": "Spline approximation"
+          "description": "Apply spline approximation"
         }
       }
     }
