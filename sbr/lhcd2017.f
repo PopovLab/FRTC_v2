@@ -78,12 +78,13 @@ cc*********************************************************************
             select case (spectrum_type)
             case (0)
                   spectr = make_spline_approximation(pos_spectr)
+                  call spectr%normalization
             case (1)
                   spectr = pos_spectr 
-                  call spectr%calc_max_power
+                  call spectr%normalization
             case (2)
                   spectr = pos_spectr
-                  call spectr%calc_max_power
+                  call spectr%normalization
             case (3)
                   print *, '2D spectrum'
                   stop                  
@@ -111,12 +112,13 @@ cc*********************************************************************
             select case (spectrum_type)
             case (0)
                   spectr = make_spline_approximation(neg_spectr)
+                  call spectr%normalization
             case (1)
                   spectr = neg_spectr 
-                  call spectr%calc_max_power
+                  call spectr%normalization
             case (2)
                   spectr = neg_spectr
-                  call spectr%calc_max_power
+                  call spectr%normalization
             case (3)
                   print *, '2D spectrum'
                   stop

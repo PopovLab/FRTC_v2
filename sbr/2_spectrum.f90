@@ -36,6 +36,7 @@ module spectrum_mod
         procedure :: get_positive_part => get_positive_part_method
         procedure :: get_negative_part => get_negative_part_method
         procedure :: calc_max_power => calc_max_power_method
+        procedure :: normalization => normalization_method
         procedure :: write => write_spectrum
     end type Spectrum
 
@@ -64,12 +65,40 @@ contains
         real(wp) max_power, pnorm
         integer i
         max_power = 0
-        pnorm = this%power_ratio*xsgs/ntet
+        pnorm = this%input_power*xsgs/ntet
         print *, 'pnorm =', pnorm        
         do i = 1, this%size
             p = this%data(i)
             p%power = p%power*pnorm
             p%Ntor = this%direction * p%Ntor
+            this%data(i) = p
+            if (p%power>max_power)  max_power = p%power
+        end do        
+        
+        this%max_power = max_power
+        print *, 'this%max_power = ', this%max_power
+    end subroutine
+
+    subroutine normalization_method(this)
+        use constants, only: xsgs
+        use rt_parameters, only : ntet
+        implicit none
+        class(Spectrum),  intent(inout) :: this
+        type(SpectrumPoint) :: p           
+        real(wp) max_power, pnorm, p_sum
+        integer i
+        p_sum = 0
+        do i = 1, this%size
+            p_sum = p_sum + this%data(i)%power
+        end do
+        max_power = 0
+        pnorm = this%input_power*xsgs/ntet/p_sum
+        print *, 'pnorm =', pnorm        
+        do i = 1, this%size
+            p = this%data(i)
+            p%power = p%power*pnorm
+            p%Ntor = this%direction * p%Ntor
+            !p%Ntor = p%Ntor
             this%data(i) = p
             if (p%power>max_power)  max_power = p%power
         end do        
@@ -344,7 +373,7 @@ contains
                 call splnt(ynzm0,pm0,yn2z,ispl,ynzm(i),powinp(i),dynn)
                 pm(i)=pm(i)*pnorm
                 if (pm(i).gt.pmax) pmax=pm(i)
-                ynzm(i)=dble(ispectr)*ynzm(i) !sav2009
+                !ynzm(i)=dble(ispectr)*ynzm(i) !sav2009
             end do
             !pabs=pabs0*pmax/1.d2
             appx_spectr = Spectrum(nnz)
