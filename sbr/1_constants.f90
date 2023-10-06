@@ -33,6 +33,7 @@ module constants
     real(wp), parameter :: c0 = sqrt(pi4*pqe**2/pme)
     real(wp), parameter :: c1 = pqe/pme/clt
     real(wp), parameter :: xsgs = 1e+13_wp
+    !! 1MW = 1e13 erg/s
     real(wp), parameter :: xwtt = 1e-7_wp
 
     real(wp), parameter :: cnst1 = 0.2965924106e-6_wp
