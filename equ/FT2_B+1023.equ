@@ -1,6 +1,6 @@
 !----------------- Times -----------------
 TSTART = 0.024d0;
-TEND = 0.05;
+TEND = 0.037;
 TINIT = 0.025d0;
 TPAUSE = 0.036d0;
 TSCALE = 0.015d0;
@@ -10,21 +10,28 @@ DPOUT = 1.d-4;
 DTOUT = 1.d-5;
 DSTART = 0.025d0;
 
+CF1 = 0.1d-3;
+CF2 = 0.026d0;
+CF3 = 0.034d0;
 !----------------- Electrons parametrs -----------------
 
 NE:AS;
-NE = NEX;
+
+!NE = NEX;
+CF10=1.5d0*(1.d0+0.5d0*FRAMP(CF2,CF3));
+CF11=0.15d0;
+NE=(CF10-CF11)*FPA**1.5+CF11;
 
 TE:AS;
-CF12 = 0.58d0*(1.d0-0.2d0*FRAMP(0.024,0.030));
-CF13 = 0.02d0;
-CF14 = 1.d0;
-TE = (CF12-CF13)*FPA**CF14+CF13 + 0.13*FRAMP(0.030,0.034);
+CF12 = 0.58d0*(1.d0-0.2d0*FRAMP(TSTART,0.030));
+CF13 = 0.015d0;
+CF14 = 1.5d0;
+TE = (CF12-CF13)*FPA**CF14+CF13 + 0.13*FRAMP(0.030,CF3);
 
 !----------------- Ion parametrs -----------------
 
 TI:AS;
-TI = 0.25*FPA**CF14+CF13;
+TI = 0.25*(1.d0+0.1d0*FRAMP(TSTART,CF3))*FPA**CF14+CF13;
 
 !----------------- Impurities -----------------
 
@@ -35,17 +42,16 @@ ZMAIN = ZMJ;
 
 AIM1 = 12;
 ZIM1 = 6;
+ZEF = 2.5d0+0.5d0*FRAMP(TSTART,TEND);
 
 !Its densities
 
 NIZ1 = NE*(ZEF-ZMJ)/(ZIM1-ZMJ)/ZIM1;
 NI = NE*(ZIM1-ZEF)/(ZIM1-ZMJ)/ZMJ;
 
-PRAD = PRADX;
+!PRAD = PRADX;
+!PE=PJOUL-PEICL-PRADX;
 !----------------- Plasma parametrs -----------------
-
-ZEF = 2.0d0+0.5d0*FRAMP(0.03,0.037);
-
 !Current densities
 
 IPL = ZRD3;
@@ -61,11 +67,7 @@ NEQUIL = 41;
 
 !----------------- LHCD & DrivenCurrent -----------------
 
-CF1 = 0.1d-3;
-CF2 = 0.026d0;
-CF3 = 0.034d0;
-
-QLH = 0.068d0+1.d-3*FRAMP(CF2,CF3)-0.069*FJUMP(CF3);
+QLH = 0.070d0+1.d-3*FRAMP(CF2,CF3)-0.071*FJUMP(CF3);
 
 debug:0.0001:DSTART::;
 saveprofiles::CF2:CF3:;
@@ -81,7 +83,7 @@ CCD2 = IINT(CULHB);
 J\CU\-1;       Upl\UPL;       Johm\CUOHM\8;   E\UPL/RTOR/GP2;
 Poh\POH\-2;    Te\TE;         CC\CC\-3;       Q\1./MU;
 Jlh\CULH\-1;   Ti\TI;         Jlh\CULH\8;     En\CAR24;
-Plh\PELH\-2;   Ne\NE;         sig\CAR32\-3;   Chr\CAR31; 
+Plh\PELH\-2;   Ne\NE\\NEX;    sig\CAR32\-3;   Chr\CAR31; 
 
 !----------------- Time output -----------------
 
