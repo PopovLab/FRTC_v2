@@ -1,5 +1,5 @@
-! IPL = 0.034 QLH = 0.06 
-! H (95) C (0.05)
+! IPL = 0.034 QLH = 0.07 
+! De (78) H (20) C (0.02)
 !
 !----------------- Times -----------------
 TSTART = 0.024d0;
@@ -46,7 +46,7 @@ ZMAIN = ZMJ;
 AIM1 = 12;
 ZIM1 = 6;
 
-ZEF = 2.5d0+0.5d0*FRAMP(TSTART,TEND);
+ZEF = 1.545d0+0.01d0*FRAMP(TSTART,TEND);
 
 !Its densities
 
@@ -54,8 +54,8 @@ NIZ1 = NE*(ZEF-ZMJ)/(ZIM1-ZMJ)/ZIM1;
 NI = NE*(ZIM1-ZEF)/(ZIM1-ZMJ)/ZMJ;
 NHYDR = NE*((ZEF-ZMJ)/(ZIM1-ZMJ)/ZIM1 - (ZIM1-ZEF)/(ZIM1-ZMJ)/ZMJ)
 
-!PRAD = PRADX;
-PE=PJOUL-PEICL !-PRADX;
+PRAD = PRADX;
+PE=POH - PELH - PRADX;
 !----------------- Plasma parametrs -----------------
 !Current densities
 
@@ -72,7 +72,7 @@ NEQUIL = 41;
 
 !----------------- LHCD & DrivenCurrent -----------------
 
-QLH = 0.068d0+1.d-3*FRAMP(CF2,CF3)-0.0691*FJUMP(CF3);
+QLH = 0.070d0+1.d-3*FRAMP(CF2,CF3)-0.071*FJUMP(CF3);
 
 debug:0.0001:DSTART::;
 saveprofiles::CF2:CF3:;
