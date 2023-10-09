@@ -94,6 +94,7 @@ CF10=0.1d0;  !interval between configlhcd() calls, sec
 CF11=0.032d0;  !first call of lhcd()
 !configlhcd:CF10:CF11:;
 
+debug:0.0001:DSTART::;
 saveprofiles::CF2::;
 lhcd2017(PELH):CF1:CF2::;
 drivencurrent(CULH,CAR32,CU)::CF2::;
