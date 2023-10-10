@@ -37,6 +37,7 @@ module spectrum_mod
         procedure :: get_negative_part => get_negative_part_method
         procedure :: calc_max_power => calc_max_power_method
         procedure :: normalization => normalization_method
+        procedure :: integral_trapez => integral_trapez_method
         procedure :: write => write_spectrum
     end type Spectrum
 
@@ -79,6 +80,23 @@ contains
         print *, 'this%max_power = ', this%max_power
     end subroutine
 
+    function integral_trapez_method(this) result(sum)
+        !! вычисление полной мощности спектра
+        !! интегрирование методом трапеций
+        implicit none
+        class(Spectrum),  intent(inout) :: this
+        real(wp) :: sum
+        integer :: i
+        type(SpectrumPoint) :: p1, p2
+        p1 = this%data(1)
+        sum = 0
+        do i = 2, this%size
+            p2 = this%data(i)
+            sum = sum + 0.5d0*(p2%power + p1%power)*(p2%Ntor-p1%Ntor)
+            p1 = p2
+        end do 
+    end function
+    
     subroutine normalization_method(this)
         use constants, only: xsgs
         use rt_parameters, only : ntet
@@ -87,10 +105,10 @@ contains
         type(SpectrumPoint) :: p           
         real(wp) max_power, pnorm, p_sum
         integer i
-        p_sum = 0
-        do i = 1, this%size
-            p_sum = p_sum + this%data(i)%power
-        end do
+        p_sum = this%integral_trapez()
+        !do i = 1, this%size
+        !    p_sum = p_sum + this%data(i)%power
+        !end do
         max_power = 0
         pnorm = this%input_power*xsgs/ntet/p_sum
         print *, 'pnorm =', pnorm        

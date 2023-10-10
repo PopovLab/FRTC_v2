@@ -64,7 +64,7 @@ cc*********************************************************************
       neg_spectr = full_spectrum%get_negative_part()
       
       !full_spectrum%power_ratio = full_spectrum%power_ratio / 2
-      call full_spectrum%calc_max_power
+      call full_spectrum%normalization
       call full_spectrum%write('full_spectrum')
 !!!!!!!!!!!!! starting ray-tracing !!!!!!!!!!!!!!!!!!!!!
       allocate(outpep(ngrid),outpem(ngrid))
