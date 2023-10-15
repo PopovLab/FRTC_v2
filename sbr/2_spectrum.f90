@@ -84,7 +84,7 @@ contains
         !! вычисление полной мощности спектра
         !! интегрирование методом трапеций
         implicit none
-        class(Spectrum),  intent(inout) :: this
+        class(Spectrum),  intent(in) :: this
         real(wp) :: sum
         integer :: i
         type(SpectrumPoint) :: p1, p2
@@ -105,10 +105,11 @@ contains
         type(SpectrumPoint) :: p           
         real(wp) max_power, pnorm, p_sum
         integer i
-        p_sum = this%integral_trapez()
-        !do i = 1, this%size
-        !    p_sum = p_sum + this%data(i)%power
-        !end do
+        !p_sum = this%integral_trapez()
+        p_sum = 0
+        do i = 1, this%size
+            p_sum = p_sum + this%data(i)%power
+        end do
         max_power = 0
         pnorm = this%input_power*xsgs/ntet/p_sum
         print *, 'pnorm =', pnorm        
@@ -259,7 +260,7 @@ contains
 
         open(iu, file=fname)
         do i=1, this%size 
-            write (iu,*) this%data(i)%Ntor, this%data(i)%Npol, this%data(i)%power
+            write (iu,'(3(ES22.14))') this%data(i)%Ntor, this%data(i)%Npol, this%data(i)%power
         enddo
     end subroutine write_spectrum
 
@@ -339,7 +340,6 @@ contains
                 ynzm0(i) = spectr%data(i)%Ntor
                 pm0(i) = spectr%data(i)%power
             end do
-
             call splne(ynzm0,pm0,ispl,yn2z)
             innz=100*ispl
             dxx=(ynzm0(ispl)-ynzm0(1))/innz
@@ -354,11 +354,10 @@ contains
                   dpw=.5d0*(yy2+yy1)*(xx2-xx1)
                   pinp=pinp+dpw
             end do
-      
             dpower=pinp/dble(nnz)
             xx2=ynzm0(1)
             yy2=pm0(1)
-            pwcurr=zero
+            pwcurr= 0
             ptot=zero
             do i=1,nnz-1
                 xx0=xx2
@@ -385,13 +384,12 @@ contains
             ynzm(nnz)=.5d0*(ynzm0(ispl)+xx2)
             pm(nnz)=pinp-ptot
             pnorm=plaun*xsgs/(pinp*ntet)
-            print *, 'pnorm =', pnorm
             pmax=-1d+10
             do i=1,nnz
                 call splnt(ynzm0,pm0,yn2z,ispl,ynzm(i),powinp(i),dynn)
                 pm(i)=pm(i)*pnorm
                 if (pm(i).gt.pmax) pmax=pm(i)
-                !ynzm(i)=dble(ispectr)*ynzm(i) !sav2009
+                ynzm(i)=dble(ispectr)*ynzm(i) !sav2009
             end do
             !pabs=pabs0*pmax/1.d2
             appx_spectr = Spectrum(nnz)
