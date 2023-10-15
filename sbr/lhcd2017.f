@@ -63,7 +63,6 @@ cc*********************************************************************
       pos_spectr = full_spectrum%get_positive_part()
       neg_spectr = full_spectrum%get_negative_part()
       
-      !full_spectrum%power_ratio = full_spectrum%power_ratio / 2
       call full_spectrum%normalization
       call full_spectrum%write('full_spectrum')
 !!!!!!!!!!!!! starting ray-tracing !!!!!!!!!!!!!!!!!!!!!
@@ -78,7 +77,6 @@ cc*********************************************************************
             select case (spectrum_type)
             case (0)
                   spectr = make_spline_approximation(pos_spectr)
-                  call spectr%normalization
             case (1)
                   spectr = pos_spectr 
                   call spectr%normalization
@@ -112,7 +110,6 @@ cc*********************************************************************
             select case (spectrum_type)
             case (0)
                   spectr = make_spline_approximation(neg_spectr)
-                  call spectr%normalization
             case (1)
                   spectr = neg_spectr 
                   call spectr%normalization
