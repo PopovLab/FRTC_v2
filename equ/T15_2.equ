@@ -4,11 +4,11 @@ TAUMIN=1.d-5;
 DPOUT=1.d-4;  
 DROUT=1.d-4;
 DTOUT=0.00001;
-TSTART = 0.1;
-TEND = 1.0;
+TSTART = 0.11;
+TEND = 0.3;
 TINIT=0.178;
 TSCALE = 0.032;
-TPAUSE = 1.2;
+TPAUSE = 0.2;
 
      
 !BTOR=1.0d0;
@@ -45,8 +45,8 @@ CAR31X = 1.5e-6           ! to substitute this for "volume" neutral density
 !============Stationary FRTC 2014============
 !QLH=ZRD1;
 !QLH=0.12d0*(FRAMP(0.180,0.182)-FJUMP(0.3d0));
-!CF1=10.0d0;
-!CF2=10.4d0;
+CF1=0.18d0;
+CF2=0.195d0;
 !CF3=1.d-4;
 !lhcd(0.d0,CULH,PELH,CAR12,CAR13,CAR14,CAR15):0.001:0.185::A;
 !CAR12 = power deposition into electrons via collisional damping
@@ -64,9 +64,9 @@ CCD3=VINT(CAR12B);  !absorbed power via collisional damping
 QLH=4.0d0;
 
 CF1=0.1d-3;  !interval between lhcd() calls, sec
-CF2=20.0d0;  !first call of lhcd()
-CF3=20.1d0;
-DSTART=0.180;
+CF2=0.180d0;  !first call of lhcd()
+CF3=0.21d0;
+DSTART=0.16;
 debug:0.0001:DSTART::;
 saveprofiles::CF2:CF3:;
 lhcd2017(PELH):CF1:CF2:CF3:;
@@ -78,8 +78,9 @@ CCD2=IINT(CULHB);   !driven current
 
 !========Current Density===========
 IPL=1.0;
-CU:Eq;
-!CU:AS;        
+CU:As;
+CU=CUX;
+!CU:Eq;
 !CU=0.3;
 CC="work(j,303)"; !+CCMHD;
 CD=CULH;
@@ -151,7 +152,6 @@ Iohm_IOHMB_-10;
 L_LINT_2;
 V_UPLB_2; 
 ICD_ILHB_-21;
-
 
 
 

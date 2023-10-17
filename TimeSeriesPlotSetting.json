@@ -3,10 +3,10 @@
   "title": "Time Series data",
   "plots": {
     "ax1": [
-      "Ilh",
-      "Qlh",
+      "QLh",
+      "IPL",
       "Iohm",
-      "Ipl"
+      "ICD"
     ],
     "ax2": [
       "U",
