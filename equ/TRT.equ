@@ -5,15 +5,15 @@ DPOUT=1.d-4;
 DROUT=1.d-4;
 DTOUT=0.00001;
 TSTART = 0.11;
-TEND = 0.3;
-TINIT=0.178;
-TSCALE = 0.032;
-TPAUSE = 0.2;
+TEND = 2.9;
+TINIT=0.299;
+TSCALE = 0.006;
+TPAUSE = 0.305;
 
      
 !BTOR=1.0d0;
 NEOCL(100)<:;
-!NEOCL2:;
+!NEOCL4:;
 
 !MIXINT(21,0)::0.12;
 
@@ -22,7 +22,8 @@ NEOCL(100)<:;
 
 
 !!=========Ion temperature============
-TI=TIX;
+!TI=TIX;
+TI=TEX;
 GN2I=1.0;
 PI=-PICX+PINEU+PIONZ-PIREC; !+CAR27+CAR29;
 XI=("work(j,165)"*NDEUT+"work(j,145)"*NHYDR)/(NI+0.001d0)+DN;  ! 
@@ -61,30 +62,33 @@ CCD3=VINT(CAR12B);  !absorbed power via collisional damping
 
 
 !===========Dynamic FRTC===========
-QLH=4.0d0;
+!QLH=4.0d0;
+QLH=10.0d0;
 
 CF1=0.1d-3;  !interval between lhcd() calls, sec
-CF2=0.180d0;  !first call of lhcd()
-CF3=0.21d0;
-DSTART=0.16;
+CF2=0.3d0;  !first call of lhcd()
+CF3=0.61d0;
+DSTART=0.298;
 debug:0.0001:DSTART::;
 saveprofiles::CF2:CF3:;
-lhcd2017(PELH):CF1:CF2:CF3:;
-drivencurrent(CULH,CAR32)::CF2:CF3:;
+lhcd2017(PELH,CAR14,CAR15,ZRD8):CF1:CF2:CF3:;
+drivencurrent(CULH,ZRD35,ZRD36,CAR12,CAR13,CAR32)::CF2:CF3:;
 
-CD=CULH;   !Externally driven current density profile, MA/m^2
-CCD1=VINT(PELHB);   !absorbed QLH power
-CCD2=IINT(CULHB);   !driven current
+
 
 !========Current Density===========
-IPL=1.0;
-CU:As;
+IPL=5.0;
+CU:Eq;
 CU=CUX;
-!CU:Eq;
-!CU=0.3;
-!+CCMHD;
+!CU=TEX/2;
+CAR25=TEX/6;
+!CU=CAR25; 
+!CU=(3.5-0.05)*((1-(AMETR/0.66)**1.5)**4)+0.05;
+!CU=FPR*1.5;
+!CC=CCHR;
+CC="work(j,303)"+CCMHD;
 CD=CULH;
-!CUBS="work(j,301)";
+CUBS="work(j,301)";
 CAR31=CNHR+CCMHD;
 !==========SAW tooth==============
 
@@ -111,7 +115,7 @@ NNWM=0.45e-4*(1-FJUMP(0.180));
 SN=SNNEU*NE+CAR20;
 
 !=========DENSITY============
-NE=NEX;
+NE=0.5*NEX;
 CAR17=(2.5-0.8)*((1-(AMETR/0.223)**1.5)**8)+0.79;
 CAR19=(0.8-0.6)*((1-(AMETR/0.223)**15)**2)+0.6;
 CAR18=CAR17*STEP(0.161-AMETR)+CAR19*STEP(AMETR-0.161)+0.001;
@@ -125,7 +129,10 @@ ZRD44=1-0.3*(FRAMP(0.2,0.21));
 CAR21=(0.72-0.17)*((1-(AMETR/0.223)**1.5)**7)+0.17;
 CAR22=(0.17-0.02)*((1-(AMETR/0.223)**15)**2)+0.02;
 CAR23=CAR21*STEP(0.171-AMETR)+CAR22*STEP(AMETR-0.171)+0.001;
-TE=TEX;
+TE=TEX*2;
+!TE=(3.5-0.05)*((1-(AMETR/0.66)**1.5)**4)+0.05;
+
+
 HE=6.0*(1-FRAMP(0.120,0.135))+(0.9*4.7*(1.-FJUMP(0.165))+2*FJUMP(0.165));
 PEX=PELH;
 PE=POH-PENEU-PENLI-PRAD+PELH;
@@ -143,19 +150,16 @@ Ti\TI\\TIX;      Ne\NE\\NEX;    sig\CAR32\-3;    Chr\CAR31;
 
 
 !====================  Time output  ===================================
-
-QLh_QLH_-5;
+L_LINTB_3;
 IPL_IPL_-21;
-IBS_CUBSB_-21;
+Qpr_ZRD8_-1;
+QLh_QLH_0.15;
+Vexp_ZRD1_2;
 Iohm_IOHMB_-10;
-
-L_LINT_2;
 V_UPLB_2; 
 ICD_ILHB_-21;
-
-
-
-
+ICDP_ZRD35_2; 
+IBS_IBSB_-21;
 
 
 
