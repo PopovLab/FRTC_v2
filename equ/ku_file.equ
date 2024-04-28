@@ -1,0 +1,58 @@
+!----------------- Times -----------------
+TSTART = 0.028d0;
+TEND = 0.04002;
+TINIT = 0.03d0;
+
+DROUT = 1.d-4;
+DPOUT = 1.d-4;
+DTOUT = 1.d-5;
+DSTART = 0.028d0;
+
+CF2 = 0.028d0;
+CF3 = 0.04002;
+
+NBND = 100;
+NEQUIL = 41;
+
+AMAIN = AMJ;
+ZMAIN = ZMJ;
+
+NE:AS; NE=NEX;
+TI:AS; TI=TIX;
+TE:AS; TE=TEX;
+PRAD=PRADX;
+
+ZEF=2.5 + 0.3*FJUMP(0.0330);
+
+NI=NE*(6.5-ZEF)/(6.5-1);
+
+CU:EQ;
+CU=CNHH;	CC=CNHH;
+
+PE=PJOUL-PEICL-PRADX;
+PI=PEICL;
+
+CF10 = -0.005 ; !D0
+CF11 = 0.62; !Ur0
+CF12 = 0.021; !IPL0
+
+DELTB(CF10,CF11,CF12,ABC):;
+CV9=AB-ABS(CV2);
+CV3=0.4*GP*IPL*RTOR*LOG(CV9/(0.13-CV2));
+CV8=TIMDER(CV3);
+
+
+
+debug:0.0001:DSTART::;
+saveprofiles::CF2:CF3:;
+
+Te\TE\0.5;     Ne\NE\5;    j\CU\7;  TauE\TAUEE*1000\4;
+HeX\HEEXP\7;   Pe\PE\5.0; Shaf\SHIF*100\1.0; Q\1./MU\5;
+
+Ti\TI\0.5; Ni\NI\5; 
+
+UpX_ZRD3_4;
+Ur_ZRD4;
+Up_(UPL(ROC)-CV8)_4;
+DR_(CV2)
+zef_ZEF(AB)_4;

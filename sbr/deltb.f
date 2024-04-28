@@ -6,8 +6,8 @@
        REAL*8 B, U0, I0, TINTG, D0, R2, BTR, LNR
 
        B = 0.103
-       TINTG = 0.00136
-       CV1 = -B*TINTG*(WPFL-U0) / 0.2 / GP / RTOR / IPL + D0*I0 / IPL
+       TINTG = 1.36 * 10**(-38)
+       CV1 = -B*TINTG*(ZRD4-U0) / 0.2 / GP / RTOR / IPL + D0*I0 / IPL
 
        YB = 0.
        do 1 J=1, NA
@@ -28,6 +28,7 @@
        LNR = LNR + 2*LOG(R2/AB)
 
        CV2 = CV1 + B*B*LOG(B/R2)/2/RTOR
-       CV2 = CV2 + (B*B - R2*R2) * (BTR + (LNR-1)/2)/2/RTOR
+       CV2 = CV2 + (B*B - R2*R2) * (BTR + (LNR-1)/2)/2/RTOR * 
+     & (CV14+1/2)/2/RTOR
 
        END

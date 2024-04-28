@@ -159,7 +159,7 @@
       },
       "pabs": {
         "title": "pabs",
-        "value": 0.01,
+        "value": 0.001,
         "type": "float",
         "description": "part of remaining power interp. as absorption"
       },
@@ -263,13 +263,13 @@
       },
       "itor": {
         "title": "itor",
-        "value": -1,
+        "value": 1,
         "type": "int",
         "description": "+-1, Btor direction in right coord{drho,dteta,dfi}"
       },
       "ipol": {
         "title": "ipol",
-        "value": -1,
+        "value": 1,
         "type": "int",
         "description": "+-1, Bpol direction in right coord{drho,dteta,dfi}"
       }
