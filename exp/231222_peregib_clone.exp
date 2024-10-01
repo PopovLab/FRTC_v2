@@ -3,21 +3,37 @@ Name   Time    Value   Error   Comment
 
 RTOR            0.55
 AB              0.078
-ABC             0.070
+ABC    0.021    0.068
+ABC    0.023    0.070
+ABC    0.029    0.068
+ABC    0.030    0.070
+ABC    0.036    0.066
+ABC    0.037    0.070
 AMJ             2.0
 ZMJ             1.0
 NB1             100
 
-SHIFT   0.021   0.0004
-SHIFT   0.022   0.0005
-SHIFT   0.028   0.001
-SHIFT   0.029   0.0016
-SHIFT   0.031   0.0015
-SHIFT   0.032   0.0016
-SHIFT   0.033   0.0017
-SHIFT   0.034   0.0017
-SHIFT   0.036   0.0020
-SHIFT   0.037   0.0020
+!SHIFT   0.021   0.0004
+!SHIFT   0.022   0.0005
+!SHIFT   0.028   0.001
+!SHIFT   0.029   0.0016
+!SHIFT   0.031   0.0015
+!SHIFT   0.032   0.0016
+!SHIFT   0.033   0.0017
+!SHIFT   0.034   0.0017
+!SHIFT   0.036   0.0020
+!SHIFT   0.037   0.0020
+
+SHIFT   0.021   -0.0018
+SHIFT   0.022   -0.0017
+SHIFT   0.028   -0.0015
+SHIFT   0.029   -0.0015
+SHIFT   0.031   -0.0015
+SHIFT   0.032   -0.0014
+SHIFT   0.033   -0.0014
+SHIFT   0.034   -0.0015
+SHIFT   0.036   -0.0017
+SHIFT   0.037   -0.0018
 
 UPDWN   0.021    -0.0058
 UPDWN   0.022    -0.0064
@@ -33,7 +49,12 @@ UPDWN   0.037    -0.0049
 ELONM           1.0
 TRICH           0.0
 
-ELONG           1.1
+ELONG   0.021   1.15
+ELONG   0.023   1.10
+ELONG   0.029   1.15
+ELONG   0.030   1.1
+ELONG   0.036   1.2
+ELONG   0.037   1.1
 TRIAN           0.0
 
 BTOR    0.01700  1.702238

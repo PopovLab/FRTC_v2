@@ -11,8 +11,10 @@
       "title": "профили токов",
       "y_label": "Value [arb. unit]",
       "data": [
+        "Jneo",
         "Jpar",
-        "Jbs"
+        "q",
+        "Plh"
       ]
     },
     {
@@ -20,7 +22,7 @@
       "title": "профили E",
       "y_label": "Value [arb. unit]",
       "data": [
-        "TauE"
+        "Jlh"
       ]
     },
     {
@@ -36,9 +38,7 @@
       "name": "ax4",
       "title": "профили температуры",
       "y_label": "Value [arb. unit]",
-      "data": [
-        "Q"
-      ]
+      "data": []
     }
   ]
 }
